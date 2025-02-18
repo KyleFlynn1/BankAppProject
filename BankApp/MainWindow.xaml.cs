@@ -23,6 +23,17 @@ namespace BankApp
         public MainWindow()
         {
             InitializeComponent();
+
+            BankAccount Account = new BankAccount("King Kyle");
+
+            Card cardOne = new Card("Debit", DateTime.Now);
+
+            Account.AddCard(cardOne);
+
+            TxtCardHolder.Content = Account.AccountHolder;
+            TxtCardNumber.Content = cardOne.CardNumberS1 + "-" + cardOne.CardNumberS2 + "-" + cardOne.CardNumberS3;
+            TxtCVV.Content = cardOne.CVV;
+            TxtExpiryDate.Content = cardOne.ExpiryDate.Month + "/" + cardOne.ExpiryDate.Year;
         }
     }
 }

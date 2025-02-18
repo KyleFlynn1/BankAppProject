@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="269" Margin="423,30,0,0" VerticalAlignment="Top" Width="506" Source="/BankCardBackground.png"/>
+        <Label Content="Name: " HorizontalAlignment="Left" Margin="449,76,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
+        <Label Content="CVV: " HorizontalAlignment="Left" Margin="449,196,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
+        <Label Content="Expiry Date: " HorizontalAlignment="Left" Margin="592,196,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
+        <Label Content="Card Number" HorizontalAlignment="Left" Margin="449,115,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
+        <Label x:Name="TxtCardHolder" Content="Donald Trump " HorizontalAlignment="Left" Margin="506,77,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White"/>
+        <Label x:Name="TxtCardNumber" Content="1536-5454-3434 " HorizontalAlignment="Left" Margin="449,154,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="222"/>
+        <Label x:Name="TxtCVV" Content="432 " HorizontalAlignment="Left" Margin="493,197,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="54" RenderTransformOrigin="0.333,0.451"/>
+        <Label x:Name="TxtExpiryDate" Content="05/27 " HorizontalAlignment="Left" Margin="694,198,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="104"/>
     </Grid>
 </Window>
