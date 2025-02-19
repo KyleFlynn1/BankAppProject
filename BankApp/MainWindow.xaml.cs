@@ -146,6 +146,7 @@ namespace BankApp
             btnCardLeft.Visibility = Visibility.Hidden;
             btnCardRight.Visibility = Visibility.Hidden;
             lblCardCount.Visibility = Visibility.Hidden;
+            txtAccountBalance.Content = $"{Account.AccountBalance:c}";
         }
 
         private void UpdateCardDetails()

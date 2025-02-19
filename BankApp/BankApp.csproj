@@ -166,5 +166,8 @@
   <ItemGroup>
     <Resource Include="CardIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DollarIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

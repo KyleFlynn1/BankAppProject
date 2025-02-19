@@ -29,7 +29,7 @@ namespace BankApp
 
             AccountHolder = accountHolder;
             AccountNumber = randNum.ToString();
-            AccountBalance = 0.00m;
+            AccountBalance = 15545355.00m;
         }
 
         //Add Card
