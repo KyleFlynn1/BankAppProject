@@ -33,10 +33,29 @@ namespace BankApp
         }
 
         //Add Card
-        public void AddCard(Card card)
+        public void AddCard(string type)
         {
+            Card card = new Card(type, DateTime.Now);
             Cards.Add(card);
             CardCount++;
+        }
+
+        /// <summary>
+        /// Deposit Money into the Bank Account
+        /// </summary>
+        /// <param name="amount"></param>
+        public void DepositMoney(decimal amount)
+        {
+
+        }
+
+        /// <summary>
+        /// Withdraw Money from the Bank Account
+        /// </summary>
+        /// <param name="amount"></param>
+        public void WithdrawMoney(decimal amount)
+        {
+
         }
 
     }

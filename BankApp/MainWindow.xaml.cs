@@ -25,10 +25,7 @@ namespace BankApp
         public MainWindow()
         {
             InitializeComponent();
-
-            Card cardOne = new Card("Debit", DateTime.Now);
-
-            Account.AddCard(cardOne);
+            Account.AddCard("Debit");
 
             UpdateCardDetails();
 
@@ -92,6 +89,11 @@ namespace BankApp
             WithdrawWin.ShowDialog();
         }
 
+        /// <summary>
+        /// Move back to the left card and update details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCardLeft_Click(object sender, RoutedEventArgs e)
         {
             btnCardRight.Visibility = Visibility.Visible;
@@ -104,6 +106,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Move over to the next card on the right and update details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCardRight_Click(object sender, RoutedEventArgs e)
         {
             btnCardLeft.Visibility = Visibility.Visible;
@@ -126,10 +133,14 @@ namespace BankApp
 
         }
 
+        /// <summary>
+        /// Add a new card using the Add Card Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddCard_Click(object sender, RoutedEventArgs e)
         {
-            Card newCard = new Card("Credit", DateTime.Now);
-            Account.AddCard(newCard);
+            Account.AddCard("Credit");
             btnAddCard.Visibility = Visibility.Hidden;
             btnCardRight.Visibility = Visibility.Visible;
             if(lblCardCount.Visibility == Visibility.Hidden)
@@ -149,6 +160,9 @@ namespace BankApp
             txtAccountBalance.Content = $"{Account.AccountBalance:c}";
         }
 
+        /// <summary>
+        /// Update the labels and text for the Card Image to match the currently selected card
+        /// </summary>
         private void UpdateCardDetails()
         {
             TxtCardHolder.Content = Account.AccountHolder;
@@ -157,6 +171,13 @@ namespace BankApp
             TxtExpiryDate.Content = Account.Cards[CurrentCard].ExpiryDate.Month + "/" + Account.Cards[CurrentCard].ExpiryDate.Year;
             lblCardCount.Content = $"Card {CurrentCard + 1}/{Account.CardCount}";
             txtCardType.Content = Account.Cards[CurrentCard].CardType;
+            if (Account.Cards[CurrentCard].CardType == "Credit")
+            {
+                txtCreditLimit.Visibility = Visibility.Visible;
+                txtCreditLimit.Content = $"Credit Limit : {Account.Cards[CurrentCard].CreditLimit:c}";
+            }
+            else
+                txtCreditLimit.Visibility = Visibility.Hidden;
         }
 
         public BankAccount Account = new BankAccount("King Kyle");
