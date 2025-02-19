@@ -35,5 +35,59 @@ namespace BankApp
             TxtCVV.Content = cardOne.CVV;
             TxtExpiryDate.Content = cardOne.ExpiryDate.Month + "/" + cardOne.ExpiryDate.Year;
         }
+
+        private void btnDashBoardWindow_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow DashboardWin = new MainWindow();
+
+            DashboardWin.Owner = this;
+
+            DashboardWin.ShowDialog();
+        }
+
+        private void btnAccountsWindow_Click(object sender, RoutedEventArgs e)
+        {
+            AccountsWindow AccountsWin = new AccountsWindow();
+
+            AccountsWin.Owner = this;
+
+            AccountsWin.ShowDialog();
+        }
+
+        private void btnTransactionsWindow_Click(object sender, RoutedEventArgs e)
+        {
+            TransactionsWindow TransactionsWin = new TransactionsWindow();
+
+            TransactionsWin.Owner = this;
+
+            TransactionsWin.ShowDialog();
+        }
+
+        private void btnWalletsWindow_Click(object sender, RoutedEventArgs e)
+        {
+            WalletsWindow WalletsWin = new WalletsWindow();
+
+            WalletsWin.Owner = this;
+
+            WalletsWin.ShowDialog();
+        }
+
+        private void btnDepositWindow_Click(object sender, RoutedEventArgs e)
+        {
+            DepositWindow DepositWin = new DepositWindow();
+
+            DepositWin.Owner = this;
+
+            DepositWin.ShowDialog();
+        }
+
+        private void btnWithdrawWindow_Click(object sender, RoutedEventArgs e)
+        {
+            WithdrawWindow WithdrawWin = new WithdrawWindow();
+
+            WithdrawWin.Owner = this;
+
+            WithdrawWin.ShowDialog();
+        }
     }
 }

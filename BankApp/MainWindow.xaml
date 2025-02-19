@@ -5,16 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="269" Margin="423,30,0,0" VerticalAlignment="Top" Width="506" Source="/BankCardBackground.png"/>
-        <Label Content="Name: " HorizontalAlignment="Left" Margin="449,76,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
-        <Label Content="CVV: " HorizontalAlignment="Left" Margin="449,196,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
-        <Label Content="Expiry Date: " HorizontalAlignment="Left" Margin="592,196,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
-        <Label Content="Card Number" HorizontalAlignment="Left" Margin="449,115,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White"/>
-        <Label x:Name="TxtCardHolder" Content="Donald Trump " HorizontalAlignment="Left" Margin="506,77,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White"/>
-        <Label x:Name="TxtCardNumber" Content="1536-5454-3434 " HorizontalAlignment="Left" Margin="449,154,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="222"/>
-        <Label x:Name="TxtCVV" Content="432 " HorizontalAlignment="Left" Margin="493,197,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="54" RenderTransformOrigin="0.333,0.451"/>
-        <Label x:Name="TxtExpiryDate" Content="05/27 " HorizontalAlignment="Left" Margin="694,198,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="104"/>
+        Title="Bank App" 
+        Height="720" 
+        Width="1280"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        WindowStartupLocation="CenterScreen"
+       >
+
+    <Grid Background="#FF1D1D2F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" Background="#FF28283E">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="280"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="1" HorizontalAlignment="Left" Height="268" Margin="240,0,0,0" VerticalAlignment="Center" Width="506" Source="/BankCardBackground.png"/>
+            <Label Grid.Column="1" Content="Name: " HorizontalAlignment="Left" Margin="266,53,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="38" Width="63"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="CVV: " HorizontalAlignment="Left" Margin="266,188,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="38" Width="48" RenderTransformOrigin="0.479,3.422"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="Expiry Date: " HorizontalAlignment="Left" Margin="409,188,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="38" Width="109" RenderTransformOrigin="0.523,0.264"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="Card Number" HorizontalAlignment="Left" Margin="266,104,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="40" Width="114"/>
+            <Label Grid.Column="1" x:Name="TxtCardHolder" Content="Donald Trump " HorizontalAlignment="Left" Margin="323,54,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Height="36" Width="178"/>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="TxtCardNumber" Content="1536-5454-3434 " HorizontalAlignment="Left" Margin="266,144,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="222" Height="36"/>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="TxtCVV" Content="432 " HorizontalAlignment="Left" Margin="310,188,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="54" RenderTransformOrigin="0.333,0.451" Height="36"/>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="TxtExpiryDate" Content="05/27 " HorizontalAlignment="Center" Margin="0,189,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="104" Height="36" RenderTransformOrigin="0.231,0.668"/>
+            <Button Content="" HorizontalAlignment="Left" Margin="707,0,0,0" VerticalAlignment="Center" Height="100" Width="100" BorderThickness="0,0,0,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/AddCardIcon.png"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Height="477" Margin="0,10,0,0">
+            <Button x:Name="btnDashBoardWindow" Content="" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" Margin="0,5,0,0" BorderThickness="0,0,0,0" Width="30" Height="45" Click="btnDashBoardWindow_Click" RenderTransformOrigin="6.894,2.372">
+                <Button.Background>
+                    <ImageBrush ImageSource="/DashboardIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Dashboard" Foreground="White" FontSize="16" FontFamily="Arial Black" HorizontalAlignment="Center"/>
+            <Button x:Name="btnAccountsWindow" Content="" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" BorderThickness="0,0,0,0" Width="45" Height="45" Click="btnAccountsWindow_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/BankIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Accounts" Foreground="White" FontSize="16" FontFamily="Arial Black" HorizontalAlignment="Center"/>
+            <Button x:Name="btnTransactionsWindow" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" BorderThickness="0,0,0,0" Height="0" Width="0" Click="btnTransactionsWindow_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/ListIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Transactions" Foreground="White" FontSize="16" FontFamily="Arial Black" HorizontalAlignment="Center"/>
+            <Button x:Name="btnWalletsWindow" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" BorderThickness="0,0,0,0" Width="45" Height="45" Click="btnWalletsWindow_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/WalletIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Wallets" Foreground="White" FontSize="16" FontFamily="Arial Black" HorizontalAlignment="Center"/>
+            <Button x:Name="btnDepositWindow" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" BorderThickness="0,0,0,0" Width="45" Height="45" RenderTransformOrigin="0.545,0.172" Click="btnDepositWindow_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/PlusIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Despoit" Foreground="White" FontSize="16" FontFamily="Arial Black" Margin="0,0,0,-4" HorizontalAlignment="Center"/>
+            <Button x:Name="btnWithdrawWindow" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" BorderThickness="0,0,0,0" Width="45" Height="45" Click="btnWithdrawWindow_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/RemoveIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Withdraw" Foreground="White" FontSize="16" FontFamily="Arial Black" HorizontalAlignment="Center"/>
+        </StackPanel>
+
     </Grid>
 </Window>

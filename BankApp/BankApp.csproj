@@ -55,8 +55,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AccountsWindow.xaml.cs">
+      <DependentUpon>AccountsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepositWindow.xaml.cs">
+      <DependentUpon>DepositWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionsWindow.xaml.cs">
+      <DependentUpon>TransactionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wallet.cs" />
+    <Compile Include="WalletsWindow.xaml.cs">
+      <DependentUpon>WalletsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WithdrawWindow.xaml.cs">
+      <DependentUpon>WithdrawWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AccountsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepositWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +94,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TransactionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WalletsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WithdrawWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -100,6 +135,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="BankCardBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DashboardIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BankIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ListIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="WalletIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PlusIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RemoveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AddCardIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
