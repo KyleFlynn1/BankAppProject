@@ -157,5 +157,14 @@
   <ItemGroup>
     <Resource Include="AddCardIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RightArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="LeftArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CardIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,6 +13,7 @@ namespace BankApp
         public string AccountHolder { get; set; }
         public string AccountNumber { get; set; }
         public decimal AccountBalance { get; set; }
+        public int CardCount { get; set; }
 
         //Sub Class Lists
         public List<Card> Cards { get; set; } = new List<Card>();
@@ -35,6 +36,7 @@ namespace BankApp
         public void AddCard(Card card)
         {
             Cards.Add(card);
+            CardCount++;
         }
 
     }

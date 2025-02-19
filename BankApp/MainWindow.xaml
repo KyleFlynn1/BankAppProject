@@ -10,7 +10,7 @@
         Width="1280"
         ResizeMode="NoResize"
         WindowStyle="SingleBorderWindow"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
        >
 
     <Grid Background="#FF1D1D2F">
@@ -33,11 +33,23 @@
             <Label Grid.Row="0" Grid.Column="1" x:Name="TxtCardNumber" Content="1536-5454-3434 " HorizontalAlignment="Left" Margin="266,144,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="222" Height="36"/>
             <Label Grid.Row="0" Grid.Column="1" x:Name="TxtCVV" Content="432 " HorizontalAlignment="Left" Margin="310,188,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="54" RenderTransformOrigin="0.333,0.451" Height="36"/>
             <Label Grid.Row="0" Grid.Column="1" x:Name="TxtExpiryDate" Content="05/27 " HorizontalAlignment="Center" Margin="0,189,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Width="104" Height="36" RenderTransformOrigin="0.231,0.668"/>
-            <Button Content="" HorizontalAlignment="Left" Margin="707,0,0,0" VerticalAlignment="Center" Height="100" Width="100" BorderThickness="0,0,0,0">
+            <Button x:Name="btnAddCard" Content="" HorizontalAlignment="Left" Margin="707,0,0,0" VerticalAlignment="Center" Height="80" Width="80" BorderThickness="0,0,0,0" Click="btnAddCard_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/AddCardIcon.png"/>
                 </Button.Background>
             </Button>
+            <Button x:Name="btnCardRight" Content="" HorizontalAlignment="Left" Margin="707,0,0,0" VerticalAlignment="Center" Height="80" Width="80" BorderThickness="0,0,0,0" Click="btnCardRight_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/RightArrow.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnCardLeft" Content="" HorizontalAlignment="Left" Margin="136,0,0,0" VerticalAlignment="Center" Height="80" Width="80" BorderThickness="0,0,0,0" Click="btnCardLeft_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/LeftArrow.png" TileMode="None"/>
+                </Button.Background>
+            </Button>
+            <Label x:Name="lblCardCount" Grid.Row="1" Content="Card 1/5" HorizontalAlignment="Left" Margin="414,10,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="38" Width="84" RenderTransformOrigin="0.479,3.422"/>
+            <Label x:Name="txtCardType" Content="Credit" HorizontalAlignment="Left" Margin="561,28,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Height="36" Width="97"/>
         </Grid>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Height="477" Margin="0,10,0,0">
             <Button x:Name="btnDashBoardWindow" Content="" MinWidth="50" MinHeight="50" MaxWidth="50" MaxHeight="50" Margin="0,5,0,0" BorderThickness="0,0,0,0" Width="30" Height="45" Click="btnDashBoardWindow_Click" RenderTransformOrigin="6.894,2.372">
