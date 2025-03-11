@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankApp
 {
     /// <summary>
-    /// Interaction logic for WithdrawWindow.xaml
+    /// Interaction logic for DepositPage.xaml
     /// </summary>
-    public partial class WithdrawWindow : Window
+    public partial class DepositPage : Page
     {
-        public WithdrawWindow()
+        public DepositPage()
         {
             InitializeComponent();
         }

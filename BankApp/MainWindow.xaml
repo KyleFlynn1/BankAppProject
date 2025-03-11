@@ -18,6 +18,7 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Frame x:Name="FullFrame" NavigationUIVisibility="Hidden" Panel.ZIndex="2" Grid.ColumnSpan="2" Height="720" Margin="0,-12,0,-4"/>
 
         <Grid Grid.Column="1" Background="#FF28283E">
             <Grid.RowDefinitions>
@@ -25,6 +26,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Image HorizontalAlignment="Left" Height="224" Margin="373,10,0,0" VerticalAlignment="Top" Width="436" Source="/BankCardBackground.png"/>
+
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2" Panel.ZIndex="1"/>
 
             <Label Content="Name: " HorizontalAlignment="Left" Margin="395,48,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="20" Foreground="White" Height="32" Width="68"/>
             <Label Grid.Row="0" Content="CVV: " HorizontalAlignment="Left" Margin="393,160,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="20" Foreground="White" Height="32" Width="54" RenderTransformOrigin="0.479,3.422"/>
@@ -105,6 +108,5 @@
             </Button>
             <Label Content="Withdraw" Foreground="White" FontSize="16" FontFamily="Arial Black" HorizontalAlignment="Center"/>
         </StackPanel>
-
     </Grid>
 </Window>

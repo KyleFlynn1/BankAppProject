@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankApp
 {
     /// <summary>
-    /// Interaction logic for AccountsWindow.xaml
+    /// Interaction logic for WalletsPage.xaml
     /// </summary>
-    public partial class AccountsWindow : Window
+    public partial class WalletsPage : Page
     {
-        public AccountsWindow()
+        public WalletsPage()
         {
             InitializeComponent();
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace BankApp
 {
     public class Card
     {
+        [Key]
+        public int CardID { get; set; }
         public string CardType { get; set; }
         public int CardNumberS1 { get; set; }
         public int CardNumberS2 { get; set; }
@@ -16,6 +19,11 @@ namespace BankApp
         public int CVV { get; set; }
         public decimal CreditLimit { get; set; }
         public DateTime ExpiryDate { get; set; }
+
+        //Foreign Key
+        public int BankAccountID { get; set; }
+        public virtual BankAccount BankAccount { get; set; } = null;
+
 
         //Construtor
         public Card(string cardType, DateTime expiryDate)

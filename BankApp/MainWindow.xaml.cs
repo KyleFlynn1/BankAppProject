@@ -25,6 +25,7 @@ namespace BankApp
         public MainWindow()
         {
             InitializeComponent();
+            FullFrame.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
             Account.AddCard("Debit");
 
             UpdateCardDetails();
@@ -37,56 +38,36 @@ namespace BankApp
 
         private void btnDashBoardWindow_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow DashboardWin = new MainWindow();
-
-            DashboardWin.Owner = this;
-
-            DashboardWin.ShowDialog();
+            MainFrame.Content = null;
         }
 
         private void btnAccountsWindow_Click(object sender, RoutedEventArgs e)
         {
-            AccountsWindow AccountsWin = new AccountsWindow();
-
-            AccountsWin.Owner = this;
-
-            AccountsWin.ShowDialog();
+            MainFrame.Navigate(new Uri("AccountsPage.xaml", UriKind.Relative));
         }
 
         private void btnTransactionsWindow_Click(object sender, RoutedEventArgs e)
         {
-            TransactionsWindow TransactionsWin = new TransactionsWindow();
+            MainFrame.Navigate(new Uri("TransactionsPage.xaml", UriKind.Relative));
 
-            TransactionsWin.Owner = this;
-
-            TransactionsWin.ShowDialog();
         }
 
         private void btnWalletsWindow_Click(object sender, RoutedEventArgs e)
         {
-            WalletsWindow WalletsWin = new WalletsWindow();
+            MainFrame.Navigate(new Uri("WalletsPage.xaml", UriKind.Relative));
 
-            WalletsWin.Owner = this;
-
-            WalletsWin.ShowDialog();
         }
 
         private void btnDepositWindow_Click(object sender, RoutedEventArgs e)
         {
-            DepositWindow DepositWin = new DepositWindow();
+            MainFrame.Navigate(new Uri("DepositPage.xaml", UriKind.Relative));
 
-            DepositWin.Owner = this;
-
-            DepositWin.ShowDialog();
         }
 
         private void btnWithdrawWindow_Click(object sender, RoutedEventArgs e)
         {
-            WithdrawWindow WithdrawWin = new WithdrawWindow();
+            MainFrame.Navigate(new Uri("WithdrawPage.xaml", UriKind.Relative));
 
-            WithdrawWin.Owner = this;
-
-            WithdrawWin.ShowDialog();
         }
 
         /// <summary>
