@@ -9,6 +9,7 @@
       Title="AccountsPage">
 
     <Grid>
-        
+        <Rectangle HorizontalAlignment="Center" Height="704" VerticalAlignment="Center" Width="1130" Fill="#FFFFDE00"/>
+
     </Grid>
 </Page>

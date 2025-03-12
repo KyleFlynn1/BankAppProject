@@ -25,7 +25,7 @@
                 <RowDefinition Height="Auto" MinHeight="280"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image HorizontalAlignment="Left" Height="224" Margin="373,10,0,0" VerticalAlignment="Top" Width="436" Source="/BankCardBackground.png"/>
+            <Image x:Name="cardImage" HorizontalAlignment="Left" Height="224" Margin="373,10,0,0" VerticalAlignment="Top" Width="436" Source="/BankCardBackground.png"/>
 
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.RowSpan="2" Panel.ZIndex="1"/>
 

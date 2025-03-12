@@ -9,6 +9,7 @@
       Title="WithdrawPage">
 
     <Grid>
-        
+        <Rectangle HorizontalAlignment="Center" Height="704" VerticalAlignment="Center" Width="1130" Fill="#FF7100FF"/>
+
     </Grid>
 </Page>

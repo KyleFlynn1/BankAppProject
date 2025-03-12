@@ -188,6 +188,12 @@
   <ItemGroup>
     <Resource Include="DollarIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BankCardBackgroundFive.png" />
+    <Resource Include="BankCardBackgroundFour.png" />
+    <Resource Include="BankCardBackgroundThree.png" />
+    <Resource Include="BankCardBackgroundTwo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

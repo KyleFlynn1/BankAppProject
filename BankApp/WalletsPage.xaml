@@ -9,6 +9,7 @@
       Title="WalletsPage">
 
     <Grid>
-        
+        <Rectangle HorizontalAlignment="Center" Height="704" VerticalAlignment="Center" Width="1130" Fill="#FF4EFF00"/>
+
     </Grid>
 </Page>

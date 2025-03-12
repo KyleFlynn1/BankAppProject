@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BankApp
 {
@@ -26,14 +27,35 @@ namespace BankApp
         {
             InitializeComponent();
             FullFrame.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+            UserData db = new UserData();
             Account.AddCard("Debit");
+
+            Transaction t1 = new Transaction(56.00m, "Test", "Food", DateTime.Now, 0.00m);
+            Transaction t2 = new Transaction(656.00m, "Test", "Food", DateTime.Now, 5.00m);
+
+            Account.Transactions.Add(t1);
+            Account.Transactions.Add(t2);
 
             UpdateCardDetails();
 
-            while (Account.CardCount > 1) { 
+            while (Account.CardCount > 1) {
                 btnAddCard.Visibility = Visibility.Hidden;
                 btnCardRight.Visibility = Visibility.Visible;
             }
+
+            //var getAccountQuery = from a in db.Users
+            //                      where a.UserID == LoginPage.UserID
+            //                      select a.BankAccountID;
+
+            //var getCards = from c in db.Cards
+            //               where c.BankAccountID == getAccountQuery.First()
+            //               select c;
+
+            //var getBank = from b in db.BankAccounts
+            //              where b.UserID == LoginPage.UserID
+            //              select b;
+
+            //Account = (BankAccount)getBank;
         }
 
         private void btnDashBoardWindow_Click(object sender, RoutedEventArgs e)
@@ -159,9 +181,32 @@ namespace BankApp
             }
             else
                 txtCreditLimit.Visibility = Visibility.Hidden;
+
+
+            switch (CurrentCard)
+            {
+                case 0:
+                    cardImage.Source = new BitmapImage(new Uri(@"/BankCardBackground.png", UriKind.Relative));
+                    break;
+                case 1:
+                    cardImage.Source = new BitmapImage(new Uri(@"/BankCardBackgroundTwo.png", UriKind.Relative));
+                    break;
+                case 2:
+                    cardImage.Source = new BitmapImage(new Uri(@"/BankCardBackgroundThree.png", UriKind.Relative));
+                    break;
+                case 3:
+                    cardImage.Source = new BitmapImage(new Uri(@"/BankCardBackgroundFour.png", UriKind.Relative));
+                    break;
+                case 4:
+                    cardImage.Source = new BitmapImage(new Uri(@"/BankCardBackgroundFive.png", UriKind.Relative));
+                    break;
+                default:
+                    break;
+            }
         }
 
-        public BankAccount Account = new BankAccount("King Kyle");
+        //public BankAccount Account { get; set; }
+        public static BankAccount Account = new BankAccount("King Kyle");
         public int CurrentCard = 0;
     }
 }

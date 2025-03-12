@@ -30,5 +30,10 @@ namespace BankApp
             TransactionDate = transactionDate;
             TransactionFee = transactionFee;
         }
+
+        public override string ToString()
+        {
+            return $"{TransactionDate.ToShortDateString()} - {TransactionAmount:c} - {OtherParty}"; 
+        }
     }
 }

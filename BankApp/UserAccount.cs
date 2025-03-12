@@ -20,7 +20,7 @@ namespace BankApp
         public int WalletID { get; set; }
 
         //Sub Classes
-        public virtual List<BankAccount> BankAccounts { get; set; } = new List<BankAccount>();
+        public virtual BankAccount BankAccounts { get; set; } = new BankAccount("");
         public virtual List<Wallet> Wallets { get; set; } = new List<Wallet>();
 
     }

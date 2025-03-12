@@ -9,6 +9,11 @@
       Title="DepositPage">
 
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="700" Stroke="Red" VerticalAlignment="Center" Width="1260" Fill="Red"/>
+        <Rectangle HorizontalAlignment="Center" Height="704" VerticalAlignment="Center" Width="1130" Fill="#FFFF00DE"/>
+        <Rectangle HorizontalAlignment="Left" Height="215" VerticalAlignment="Top" Width="211" Fill="Red" Margin="286,137,0,0" RenderTransformOrigin="1.278,0.864"/>
+        <Rectangle HorizontalAlignment="Left" Height="215" VerticalAlignment="Top" Width="211" Fill="#FFFF00DE" Margin="686,109,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="215" VerticalAlignment="Top" Width="211" Fill="Red" Margin="669,137,0,0" RenderTransformOrigin="1.278,0.864"/>
+        <Rectangle HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="664" Fill="Red" Margin="251,442,0,0" RenderTransformOrigin="1.278,0.864"/>
+        <TextBlock HorizontalAlignment="Left" Margin="430,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="75" Width="306" Foreground="White" FontFamily="Arial Black" FontSize="72" FontWeight="Bold" Text="ERROR"/>
     </Grid>
 </Page>

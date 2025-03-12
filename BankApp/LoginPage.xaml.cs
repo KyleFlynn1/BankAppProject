@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,12 @@ namespace BankApp
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
+    /// 
     public partial class LoginPage : Page
     {
+        public static int UserID;
+        UserData db = new UserData();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -28,6 +33,18 @@ namespace BankApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            //var loginQuery = from p in db.Users
+            //                 where p.Password == passwordInput.Text && p.Username == usernameInput.Text
+            //                 select p.UserID;
+
+            //UserID = loginQuery.First();
+
+            //if (loginQuery != null )
+            //{
+            //    mainWindow.FullFrame.Content = null;
+            //}
+
             mainWindow.FullFrame.Content = null;
         }
     }

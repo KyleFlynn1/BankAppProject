@@ -23,6 +23,7 @@ namespace BankApp
         public TransactionsPage()
         {
             InitializeComponent();
+            lbxTransactions.ItemsSource = MainWindow.Account.Transactions;
         }
     }
 }

@@ -16,9 +16,9 @@ namespace DatabaseManagement
             using (db)
             {
                 UserAccount a1 = new UserAccount() { UserID = 1, Username = "Test", Password = "123", BankAccountID = 1 };
-                BankAccount b1 = new BankAccount("Kyle F") { BankID = 1, UserAccount = a1, UserID = 1, CardID = new int[] { 1, 2 } };
-                Card c1 = new Card("Debit", DateTime.Now) { BankAccount = b1, BankAccountID = 1, CardID = 1};
-                Card c2 = new Card("Credit", DateTime.Now) { BankAccount = b1, BankAccountID = 1, CardID = 2};
+                BankAccount b1 = new BankAccount("Kyle Flynn") { BankID = 1, UserAccount = a1, UserID = 1, CardID = new int[] { 1, 2 } };
+                Card c1 = new Card("Debit", DateTime.Now) { BankAccount = b1, BankAccountID = 7, CardID = 1};
+                Card c2 = new Card("Credit", DateTime.Now) { BankAccount = b1, BankAccountID = 7, CardID = 2};
                 b1.AppendCard(c1);
                 b1.AppendCard(c2);
                 a1.BankAccounts.Add(b1);
