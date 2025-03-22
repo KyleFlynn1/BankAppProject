@@ -34,18 +34,20 @@ namespace BankApp
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            //var loginQuery = from p in db.Users
-            //                 where p.Password == passwordInput.Text && p.Username == usernameInput.Text
-            //                 select p.UserID;
+            var loginQuery = (from p in db.Users
+                             where p.Password == passwordInput.Text && p.Username == usernameInput.Text
+                             select p.UserID).FirstOrDefault();
 
-            //UserID = loginQuery.First();
-
-            //if (loginQuery != null )
-            //{
-            //    mainWindow.FullFrame.Content = null;
-            //}
-
-            mainWindow.FullFrame.Content = null;
+            if (loginQuery != 0)
+            {
+                txtError.Text = "";
+                LoginPage.UserID = loginQuery;
+                mainWindow.FullFrame.Content = null;
+            }
+            else
+            {
+                txtError.Text = "Incorrect Details Entered!";
+            }
         }
     }
 }

@@ -15,12 +15,12 @@ namespace DatabaseManagement
 
             using (db)
             {
-                UserAccount a1 = new UserAccount() { UserID = 1, Username = "Test", Password = "123", BankAccountID = 1 };
-                BankAccount b1 = new BankAccount("Kyle Flynn") { BankID = 1, UserAccount = a1, UserID = 1, CardID = new int[] { 1, 2 } };
-                Card c1 = new Card("Debit", DateTime.Now) { BankAccount = b1, BankAccountID = 7, CardID = 1};
-                Card c2 = new Card("Credit", DateTime.Now) { BankAccount = b1, BankAccountID = 7, CardID = 2};
-                b1.AppendCard(c1);
-                b1.AppendCard(c2);
+                UserAccount a1 = new UserAccount() { Username = "Test", Password = "123", BankAccountID = 1 };
+                BankAccount b1 = new BankAccount("Kyle Flynn") { UserAccount = a1 };
+                Card c1 = new Card("Debit", DateTime.Now) { BankAccount = b1};
+                Card c2 = new Card("Credit", DateTime.Now) { BankAccount = b1};
+                b1.Cards.Add(c1);
+                b1.Cards.Add(c2);
                 a1.BankAccounts.Add(b1);
 
                 db.Users.Add(a1);

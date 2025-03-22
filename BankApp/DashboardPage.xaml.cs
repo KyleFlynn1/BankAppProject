@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -14,70 +13,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BankApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DashboardPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DashboardPage : Page
     {
         public static BankAccount Account;
-        public static bool LoggedIn = false;
         UserData db = new UserData();
-        public MainWindow()
+        public DashboardPage()
         {
             InitializeComponent();
-            FullFrame.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
-            
-            LoadData();
-  
-
-
             Transaction t1 = new Transaction(56.00m, "Test", "Food", DateTime.Now, 0.00m);
             Transaction t2 = new Transaction(656.00m, "Test", "Food", DateTime.Now, 5.00m);
 
             //Account.Transactions.Add(t1);
             //Account.Transactions.Add(t2);
-
-
         }
-
-        private void btnDashBoardWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Uri("DashboardPage.xaml", UriKind.Relative));
-        }
-
-        private void btnAccountsWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Uri("AccountsPage.xaml", UriKind.Relative));
-        }
-
-        private void btnTransactionsWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Uri("TransactionsPage.xaml", UriKind.Relative));
-
-        }
-
-        private void btnWalletsWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Uri("WalletsPage.xaml", UriKind.Relative));
-
-        }
-
-        private void btnDepositWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Uri("DepositPage.xaml", UriKind.Relative));
-
-        }
-
-        private void btnWithdrawWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Uri("WithdrawPage.xaml", UriKind.Relative));
-
-        }
-
         /// <summary>
         /// Move back to the left card and update details
         /// </summary>
@@ -106,7 +60,7 @@ namespace BankApp
             CurrentCard++;
             UpdateCardDetails();
 
-            if (CurrentCard+1 == Account.CardCount)
+            if (CurrentCard + 1 == Account.CardCount)
             {
                 if (Account.CardCount == 5)
                 {
@@ -118,7 +72,7 @@ namespace BankApp
                     btnCardRight.Visibility = Visibility.Hidden;
                 }
             }
-            
+
 
         }
 
@@ -132,11 +86,11 @@ namespace BankApp
             Account.AddCard("Credit");
             btnAddCard.Visibility = Visibility.Hidden;
             btnCardRight.Visibility = Visibility.Visible;
-            if(lblCardCount.Visibility == Visibility.Hidden)
+            if (lblCardCount.Visibility == Visibility.Hidden)
             {
                 lblCardCount.Visibility = Visibility.Visible;
             }
-            lblCardCount.Content = $"Card {CurrentCard+1}/{Account.CardCount}";
+            lblCardCount.Content = $"Card {CurrentCard + 1}/{Account.CardCount}";
             btnCardRight_Click(sender, e);
         }
 
@@ -146,7 +100,7 @@ namespace BankApp
             btnCardLeft.Visibility = Visibility.Hidden;
             btnCardRight.Visibility = Visibility.Hidden;
             lblCardCount.Visibility = Visibility.Hidden;
-            
+
         }
 
         /// <summary>
@@ -198,7 +152,7 @@ namespace BankApp
 
             //Query to get the bank account from the database that matches the useriD
             var bankAccountQuery = (from b in db.BankAccounts
-                                    where b.UserID == 1
+                                    where b.UserID == UserID
                                     select b).FirstOrDefault();
 
             if (bankAccountQuery != null)
@@ -212,7 +166,7 @@ namespace BankApp
                     btnCardRight.Visibility = Visibility.Visible;
                 }
             }
-            else 
+            else
             {
                 txtAccountBalance.Content = UserID;
             }

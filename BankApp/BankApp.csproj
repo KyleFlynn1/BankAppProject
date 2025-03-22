@@ -68,6 +68,9 @@
     <Compile Include="AccountsPage.xaml.cs">
       <DependentUpon>AccountsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DepositPage.xaml.cs">
       <DependentUpon>DepositPage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <DependentUpon>WithdrawPage.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DashboardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

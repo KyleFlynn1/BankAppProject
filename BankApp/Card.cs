@@ -42,6 +42,8 @@ namespace BankApp
             }
         }
 
+        public Card() { }
+
 
     }
 }

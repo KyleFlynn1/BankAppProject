@@ -16,6 +16,7 @@
                 <TextBlock TextWrapping="Wrap" Foreground="White" Padding="0,4,0,5" FontFamily="Arial Black" FontSize="24" Height="35" Width="134"><Run Language="en-ie" Text="Password"/><LineBreak/><Run Language="en-ie"/></TextBlock>
                 <TextBox x:Name="passwordInput" TextWrapping="Wrap" Width="254" Foreground="#FF311F1F" BorderBrush="White" SelectionBrush="White" Height="32" HorizontalContentAlignment="Center" Padding="0,5,0,5" ScrollViewer.CanContentScroll="True" FontFamily="Arial" FontSize="18" />
                 <Button Content="Submit" Width="230" FontFamily="Arial Black" Background="#FF42FF00" Foreground="White" Height="51" FontSize="22" Margin="5,15,5,5" Click="Button_Click"/>
+                <TextBlock x:Name="txtError" TextWrapping="Wrap" Foreground="Red" Padding="0,4,0,5" FontFamily="Calibri" FontSize="18" Height="44" Width="252" TextAlignment="Center"><Run/><LineBreak/><Run/></TextBlock>
             </StackPanel>
         </Grid>
     </Grid>

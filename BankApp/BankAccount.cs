@@ -19,7 +19,7 @@ namespace BankApp
         public int CardCount { get; set; }
 
         //Foreign Keys
-        public virtual UserAccount UserAccount { get; set; } = null;
+        public virtual UserAccount UserAccount { get; set; }
         public int UserID { get; set; }
         public int[] TransactionID { get; set; }
         public int[] CardID{ get; set; }
@@ -51,7 +51,6 @@ namespace BankApp
         public void AppendCard(Card card)
         {
             Cards.Add(card);
-            CardCount++;
         }
 
         /// <summary>
@@ -71,6 +70,8 @@ namespace BankApp
         {
 
         }
+
+        public BankAccount() { }
 
     }
 }

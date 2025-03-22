@@ -35,5 +35,8 @@ namespace BankApp
         {
             return $"{TransactionDate.ToShortDateString()} - {TransactionAmount:c} - {OtherParty}"; 
         }
+
+        public Transaction() { }
+
     }
 }
