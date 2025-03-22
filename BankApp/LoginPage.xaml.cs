@@ -43,6 +43,7 @@ namespace BankApp
                 txtError.Text = "";
                 LoginPage.UserID = loginQuery;
                 mainWindow.FullFrame.Content = null;
+                mainWindow.MainFrame.Navigate(new Uri("DashboardPage.xaml", UriKind.Relative));
             }
             else
             {

@@ -26,6 +26,8 @@ namespace BankApp
         public DashboardPage()
         {
             InitializeComponent();
+
+            LoadData();
             Transaction t1 = new Transaction(56.00m, "Test", "Food", DateTime.Now, 0.00m);
             Transaction t2 = new Transaction(656.00m, "Test", "Food", DateTime.Now, 5.00m);
 
@@ -60,9 +62,9 @@ namespace BankApp
             CurrentCard++;
             UpdateCardDetails();
 
-            if (CurrentCard + 1 == Account.CardCount)
+            if (CurrentCard + 1 == Account.CardCount || CurrentCard + 1 == 5)
             {
-                if (Account.CardCount == 5)
+                if (Account.CardCount >= 5)
                 {
                     btnCardRight.Visibility = Visibility.Hidden;
                 }
@@ -83,7 +85,11 @@ namespace BankApp
         /// <param name="e"></param>
         private void btnAddCard_Click(object sender, RoutedEventArgs e)
         {
-            Account.AddCard("Credit");
+            Card card = new Card("Credit", DateTime.Now) { BankAccount = Account };
+            Account.AppendCard(card);
+            db.Cards.Add(card);
+            Account.CardCount++;
+            db.SaveChanges();
             btnAddCard.Visibility = Visibility.Hidden;
             btnCardRight.Visibility = Visibility.Visible;
             if (lblCardCount.Visibility == Visibility.Hidden)
@@ -158,10 +164,12 @@ namespace BankApp
             if (bankAccountQuery != null)
             {
                 Account = bankAccountQuery;
+                Account.CardCount = bankAccountQuery.Cards.Count();
                 UpdateCardDetails();
                 txtAccountBalance.Content = $"{Account.AccountBalance:c}";
-                while (Account.CardCount > 1)
+                if (Account.CardCount > 1)
                 {
+                    btnCardLeft.Visibility = Visibility.Hidden;
                     btnAddCard.Visibility = Visibility.Hidden;
                     btnCardRight.Visibility = Visibility.Visible;
                 }
