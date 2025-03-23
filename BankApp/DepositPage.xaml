@@ -9,22 +9,28 @@
       Title="DepositPage">
 
     <Grid Background="#FF28283E">
-        <StackPanel Orientation="Horizontal" Margin="204,103,204,518">
-            <TextBox TextWrapping="Wrap" Text="Amount" Width="246" FontSize="24" Background="#FF1A1A2B" BorderBrush="{x:Null}" Foreground="#FF757575" Margin="0,0,0,0" SelectionBrush="White"  Height="45"/>
-            <Button Content="+10" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93"/>
-            <Button Content="+25" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93"/>
-            <Button Content="+50" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93"/>
-            <Button Content="+100" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93"/>
-            <Button Content="+250" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93"/>
+        <StackPanel Orientation="Horizontal" Margin="209,150,199,471">
+            <TextBox x:Name="depositAmountInput" TextWrapping="Wrap" Text="Amount" Width="246" FontSize="24" Background="#FF1A1A2B" BorderBrush="{x:Null}" Foreground="#FF757575" Margin="0,0,0,0" SelectionBrush="White"  Height="45"/>
+            <Button x:Name="quickDepositBTN10" Content="+10" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN10_Click"/>
+            <Button x:Name="quickDepositBTN25" Content="+25" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN25_Click"/>
+            <Button x:Name="quickDepositBTN50" Content="+50" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN50_Click"/>
+            <Button x:Name="quickDepositBTN100" Content="+100" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN100_Click"/>
+            <Button x:Name="quickDepositBTN250" Content="+250" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN250_Click"/>
         </StackPanel>
-        <StackPanel Margin="471,191,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <RadioButton Content="Paypal" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
-            <RadioButton Content="Revolut" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
-            <RadioButton Content="Stripe" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
-            <RadioButton Content="Hyperwallet" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
-            <RadioButton Content="Bank Transfer" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
-            <RadioButton Content="Cheque" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold"/>
+        <StackPanel Margin="742,267,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <RadioButton x:Name="methodPaypalBTN" Content="Paypal" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodPaypalBTN_Checked"/>
+            <RadioButton x:Name="methodRevolutBTN" Content="Revolut" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodRevolutBTN_Checked"/>
+            <RadioButton x:Name="methodStripeBTN" Content="Stripe" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodStripeBTN_Checked"/>
+            <RadioButton x:Name="methodHyperWalletBTN" Content="Hyperwallet" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodHyperWalletBTN_Checked"/>
+            <RadioButton x:Name="methodBankTransferBTN" Content="Bank Transfer" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodBankTransferBTN_Checked"/>
+            <RadioButton x:Name="methodChequeBTN" Content="Cheque" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodChequeBTN_Checked"/>
         </StackPanel>
+        <TextBox x:Name="depositNotesInput" HorizontalAlignment="Left" Margin="207,233,0,0" TextWrapping="Wrap" Text="Deposit Notes/Description" VerticalAlignment="Top" Width="504" Height="208" BorderThickness="0,0,0,0" Foreground="#FF888888" SelectionBrush="White" BorderBrush="{x:Null}" Background="#FF1A1A2B" FontSize="18" FontFamily="Segoe UI Light"/>
+        <Label x:Name="txtAccountBalance" Grid.Row="0" Content="999,999" HorizontalAlignment="Left" Margin="209,98,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="34" Foreground="White" Height="81" Width="409" RenderTransformOrigin="0.523,0.264"/>
+        <Label Grid.Row="0" Content="Balance" HorizontalAlignment="Left" Margin="207,38,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" FontSize="48" Foreground="White" Height="60" Width="406" RenderTransformOrigin="0.523,0.264"/>
+        <Label Grid.Row="0" Content="Select Method:" HorizontalAlignment="Left" Margin="729,222,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" FontSize="24" Foreground="White" Height="40" Width="189" RenderTransformOrigin="0.523,0.264" FontWeight="DemiBold"/>
+        <Button x:Name="depositBTN" Content="Deposit" HorizontalAlignment="Center" Margin="0,463,0,0" VerticalAlignment="Top" Height="51" Width="122" Foreground="White" Background="#FF08FF00" FontSize="24" FontFamily="Segoe UI Semibold" Click="depositBTN_Click"/>
+        <TextBlock x:Name="txtError" TextWrapping="Wrap" Foreground="Red" Padding="0,4,0,5" FontFamily="Calibri" FontSize="18" Height="44" Width="252" TextAlignment="Center" Margin="444,519,434,141"/>
 
 
     </Grid>

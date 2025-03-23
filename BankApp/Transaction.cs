@@ -16,24 +16,26 @@ namespace BankApp
         public string OtherParty { get; set; }
         public DateTime TransactionDate { get; set; }
         public decimal TransactionFee { get; set; }
+        public string TransactionType { get; set; }
 
         //Foreign Key
         public int BankAccountID { get; set; }
         public virtual BankAccount BankAccount { get; set; } = null;
 
 
-        public Transaction(decimal transactionAmount, string description, string otherParty, DateTime transactionDate, decimal transactionFee)
+        public Transaction(decimal transactionAmount, string description, string otherParty, DateTime transactionDate, decimal transactionFee, string transactionType)
         {
             TransactionAmount = transactionAmount;
             Description = description;
             OtherParty = otherParty;
             TransactionDate = transactionDate;
             TransactionFee = transactionFee;
+            TransactionType = transactionType;
         }
 
         public override string ToString()
         {
-            return $"{TransactionDate.ToShortDateString()} - {TransactionAmount:c} - {OtherParty}"; 
+            return $"{TransactionDate.ToShortDateString()} - {TransactionAmount:c} - From {OtherParty} - Note : {Description}"; 
         }
 
         public Transaction() { }

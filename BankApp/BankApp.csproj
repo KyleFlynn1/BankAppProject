@@ -77,6 +77,19 @@
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503221707059_InitialCreate.cs" />
+    <Compile Include="Migrations\202503221707059_InitialCreate.Designer.cs">
+      <DependentUpon>202503221707059_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503231619229_AddNewColumnToTransactions.cs" />
+    <Compile Include="Migrations\202503231619229_AddNewColumnToTransactions.Designer.cs">
+      <DependentUpon>202503231619229_AddNewColumnToTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202503231620131_AddNewColumnToTransactions1.cs" />
+    <Compile Include="Migrations\202503231620131_AddNewColumnToTransactions1.Designer.cs">
+      <DependentUpon>202503231620131_AddNewColumnToTransactions1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="TransactionsPage.xaml.cs">
       <DependentUpon>TransactionsPage.xaml</DependentUpon>
@@ -146,6 +159,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202503221707059_InitialCreate.resx">
+      <DependentUpon>202503221707059_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503231619229_AddNewColumnToTransactions.resx">
+      <DependentUpon>202503231619229_AddNewColumnToTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503231620131_AddNewColumnToTransactions1.resx">
+      <DependentUpon>202503231620131_AddNewColumnToTransactions1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

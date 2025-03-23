@@ -37,7 +37,7 @@ namespace BankApp
 
             AccountHolder = accountHolder;
             AccountNumber = randNum.ToString();
-            AccountBalance = 15545355.00m;
+            AccountBalance = 0.00m;
             
         }
 
@@ -51,24 +51,6 @@ namespace BankApp
         public void AppendCard(Card card)
         {
             Cards.Add(card);
-        }
-
-        /// <summary>
-        /// Deposit Money into the Bank Account
-        /// </summary>
-        /// <param name="amount"></param>
-        public void DepositMoney(decimal amount)
-        {
-
-        }
-
-        /// <summary>
-        /// Withdraw Money from the Bank Account
-        /// </summary>
-        /// <param name="amount"></param>
-        public void WithdrawMoney(decimal amount)
-        {
-
         }
 
         public BankAccount() { }

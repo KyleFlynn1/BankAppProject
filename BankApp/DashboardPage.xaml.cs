@@ -28,11 +28,6 @@ namespace BankApp
             InitializeComponent();
 
             LoadData();
-            Transaction t1 = new Transaction(56.00m, "Test", "Food", DateTime.Now, 0.00m);
-            Transaction t2 = new Transaction(656.00m, "Test", "Food", DateTime.Now, 5.00m);
-
-            //Account.Transactions.Add(t1);
-            //Account.Transactions.Add(t2);
         }
         /// <summary>
         /// Move back to the left card and update details
