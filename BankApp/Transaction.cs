@@ -35,7 +35,8 @@ namespace BankApp
 
         public override string ToString()
         {
-            return $"{TransactionDate.ToShortDateString()} - {TransactionAmount:c} - From {OtherParty} - Note : {Description}"; 
+            return $"{TransactionDate.ToShortDateString(),-12}{TransactionAmount.ToString("C2"),18}  {OtherParty,-15}{Description,-40}";
+
         }
 
         public Transaction() { }

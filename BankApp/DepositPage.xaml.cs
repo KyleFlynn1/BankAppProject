@@ -27,39 +27,111 @@ namespace BankApp
         static decimal InputtedAmount;
         static string DepositDescription;
         static string MethodName;
+        static bool quickAddType = false;
         public DepositPage()
         {
             InitializeComponent();
             UpdateBalanceText();
+            ChangeQuickAddType();
         }
 
-        private void quickDepositBTN10_Click(object sender, RoutedEventArgs e)
+        private void quickAddBTN10_Click(object sender, RoutedEventArgs e)
         {
-            QuickDepositAmount += 10.0m;
+            if(quickAddType == true)
+            {
+                if (DepositAmount >= 10.0m)
+                {
+                    QuickDepositAmount -= 10.0m;
+                }
+                else
+                {
+                    QuickDepositAmount -= DepositAmount;
+                }
+            }
+            else if (quickAddType == false)
+            {
+                QuickDepositAmount += 10.0m;
+            }
             UpdateDepositAmountBox();
         }
 
-        private void quickDepositBTN25_Click(object sender, RoutedEventArgs e)
+        private void quickAddBTN25_Click(object sender, RoutedEventArgs e)
         {
-            QuickDepositAmount += 25.0m;
+            if (quickAddType == true)
+            {
+                if (DepositAmount >= 25.0m)
+                {
+                    QuickDepositAmount -= 25.0m;
+                }
+                else
+                {
+                    QuickDepositAmount -= DepositAmount;
+                }
+            }
+            else if (quickAddType == false)
+            {
+                QuickDepositAmount += 25.0m;
+            }
             UpdateDepositAmountBox();
         }
 
-        private void quickDepositBTN50_Click(object sender, RoutedEventArgs e)
+        private void quickAddBTN50_Click(object sender, RoutedEventArgs e)
         {
-            QuickDepositAmount += 50.0m;
+            if (quickAddType == true)
+            {
+                if (DepositAmount >= 50.0m)
+                {
+                    QuickDepositAmount -= 50.0m;
+                }
+                else
+                {
+                    QuickDepositAmount -= DepositAmount;
+                }
+            }
+            else if (quickAddType == false)
+            {
+                QuickDepositAmount += 50.0m;
+            }
             UpdateDepositAmountBox();
         }
 
-        private void quickDepositBTN100_Click(object sender, RoutedEventArgs e)
+        private void quickAddBTN100_Click(object sender, RoutedEventArgs e)
         {
-            QuickDepositAmount += 100.0m;
+            if (quickAddType == true)
+            {
+                if (DepositAmount >= 100.0m)
+                {
+                    QuickDepositAmount -= 100.0m;
+                }
+                else
+                {
+                    QuickDepositAmount -= DepositAmount;
+                }             
+            }
+            else if (quickAddType == false)
+            {
+                QuickDepositAmount += 100.0m;
+            }
             UpdateDepositAmountBox();
         }
 
-        private void quickDepositBTN250_Click(object sender, RoutedEventArgs e)
+        private void quickAddBTN250_Click(object sender, RoutedEventArgs e)
         {
-            QuickDepositAmount += 250.0m;
+            if (quickAddType == true)
+            {
+                if (DepositAmount >= 250.0m)
+                {
+                    QuickDepositAmount -= 250.0m;
+                }
+                else
+                {
+                    QuickDepositAmount -= DepositAmount;
+                }
+            }
+            else if (quickAddType == false)
+            {
+                QuickDepositAmount += 250.0m;
+            }
             UpdateDepositAmountBox();
         }
 
@@ -83,7 +155,7 @@ namespace BankApp
                 {
                     txtError.Foreground = new SolidColorBrush(Colors.Green);
                     txtError.Text = $"Succesful Deposit of + {DepositAmount:c}";
-                    bankAccountQuery.AccountBalance += DepositAmount;
+                    bankAccountQuery.Deposit(DepositAmount);
                     Transaction t1 = new Transaction(DepositAmount, DepositDescription, MethodName, DateTime.Now, 0.55m, "Deposit");
                     bankAccountQuery.Transactions.Add(t1);
                     db.Transactions.Add(t1);
@@ -160,5 +232,40 @@ namespace BankApp
             MethodName = "Cheque";
         }
 
+        private void quickAddTypeBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (quickAddType == true)
+            {
+                quickAddType = false;
+            }
+            else if (quickAddType == false)
+            {
+                quickAddType = true;
+            }
+            ChangeQuickAddType();
+        }
+
+        public void ChangeQuickAddType()
+        {
+
+            if (quickAddType == true)
+            {
+                quickAddTypeBTN.Content = "+";
+                quickAddBTN10.Content = "-10";
+                quickAddBTN25.Content = "-25";
+                quickAddBTN50.Content = "-50";
+                quickAddBTN100.Content = "-100";
+                quickAddBTN250.Content = "-250";
+            }
+            else if (quickAddType == false)
+            {
+                quickAddTypeBTN.Content = "-";
+                quickAddBTN10.Content = "+10";
+                quickAddBTN25.Content = "+25";
+                quickAddBTN50.Content = "+50";
+                quickAddBTN100.Content = "+100";
+                quickAddBTN250.Content = "+250";
+            }
+        }
     }
 }

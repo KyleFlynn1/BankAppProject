@@ -9,7 +9,7 @@
       Title="TransactionsPage">
 
     <Grid Background="#FF28283E">
-        <ListBox x:Name="lbxTransactions" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="36,64,476,64" Background="#FF1D1D2F" Foreground="White" FontFamily="Sitka Text" FontSize="18" BorderThickness="0,0,0,1" BorderBrush="Black"/>
+        <ListBox x:Name="lbxTransactions" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="36,64,412,64" Background="#FF1D1D2F" Foreground="White" FontFamily="Cascadia Mono" BorderThickness="0,0,0,1" BorderBrush="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="36,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="279" Foreground="White" FontFamily="Arial Black" FontSize="36" FontWeight="Bold"><Run Text="Transaction"/><Run Language="en-ie" Text="s"/><Run Text="s"/></TextBlock>
         <!--<Rectangle HorizontalAlignment="Center" Height="704" VerticalAlignment="Center" Width="1130" Fill="#FF00FFB3"/>-->
 

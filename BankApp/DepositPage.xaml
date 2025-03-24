@@ -9,13 +9,14 @@
       Title="DepositPage">
 
     <Grid Background="#FF28283E">
-        <StackPanel Orientation="Horizontal" Margin="209,150,199,471">
+        <StackPanel Orientation="Horizontal" Margin="208,148,144,472">
             <TextBox x:Name="depositAmountInput" TextWrapping="Wrap" Text="Amount" Width="246" FontSize="24" Background="#FF1A1A2B" BorderBrush="{x:Null}" Foreground="#FF757575" Margin="0,0,0,0" SelectionBrush="White"  Height="45"/>
-            <Button x:Name="quickDepositBTN10" Content="+10" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN10_Click"/>
-            <Button x:Name="quickDepositBTN25" Content="+25" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN25_Click"/>
-            <Button x:Name="quickDepositBTN50" Content="+50" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN50_Click"/>
-            <Button x:Name="quickDepositBTN100" Content="+100" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN100_Click"/>
-            <Button x:Name="quickDepositBTN250" Content="+250" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickDepositBTN250_Click"/>
+            <Button x:Name="quickAddBTN10" Content="+10" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickAddBTN10_Click"/>
+            <Button x:Name="quickAddBTN25" Content="+25" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickAddBTN25_Click"/>
+            <Button x:Name="quickAddBTN50" Content="+50" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickAddBTN50_Click"/>
+            <Button x:Name="quickAddBTN100" Content="+100" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickAddBTN100_Click"/>
+            <Button x:Name="quickAddBTN250" Content="+250" Foreground="White" Background="#FF1A1A2B" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,0" Height="45" Width="93" Click="quickAddBTN250_Click"/>
+            <Button x:Name="quickAddTypeBTN" Content="+" Foreground="White" Background="#FF1A1A2B" Width="40" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Bahnschrift Light" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="34" Click="quickAddTypeBTN_Click"/>
         </StackPanel>
         <StackPanel Margin="742,267,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" HorizontalAlignment="Left">
             <RadioButton x:Name="methodPaypalBTN" Content="Paypal" Foreground="White" FontSize="25" FontFamily="Bahnschrift SemiBold" Checked="methodPaypalBTN_Checked"/>
@@ -30,8 +31,6 @@
         <Label Grid.Row="0" Content="Balance" HorizontalAlignment="Left" Margin="207,38,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" FontSize="48" Foreground="White" Height="60" Width="406" RenderTransformOrigin="0.523,0.264"/>
         <Label Grid.Row="0" Content="Select Method:" HorizontalAlignment="Left" Margin="729,222,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" FontSize="24" Foreground="White" Height="40" Width="189" RenderTransformOrigin="0.523,0.264" FontWeight="DemiBold"/>
         <Button x:Name="depositBTN" Content="Deposit" HorizontalAlignment="Center" Margin="0,463,0,0" VerticalAlignment="Top" Height="51" Width="122" Foreground="White" Background="#FF08FF00" FontSize="24" FontFamily="Segoe UI Semibold" Click="depositBTN_Click"/>
-        <TextBlock x:Name="txtError" TextWrapping="Wrap" Foreground="Red" Padding="0,4,0,5" FontFamily="Calibri" FontSize="18" Height="44" Width="252" TextAlignment="Center" Margin="444,519,434,141"/>
-
-
+        <TextBlock x:Name="txtError" TextWrapping="Wrap" Foreground="Red" Padding="0,4,0,5" FontFamily="Calibri" FontSize="18" TextAlignment="Center" Margin="393,519,383,118" VerticalAlignment="Center"/>
     </Grid>
 </Page>

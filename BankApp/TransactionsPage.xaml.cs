@@ -23,7 +23,18 @@ namespace BankApp
         public TransactionsPage()
         {
             InitializeComponent();
-            lbxTransactions.ItemsSource = DashboardPage.Account.Transactions;
+            UpdateTransactionList();
         }
+
+        public void UpdateTransactionList()
+        {
+            List<Transaction> ReversedTransactions = new List<Transaction>();
+            ReversedTransactions = DashboardPage.Account.Transactions;
+            ReversedTransactions.Reverse();
+            lbxTransactions.ItemsSource = ReversedTransactions;
+        }
+
+
     }
 }
+
