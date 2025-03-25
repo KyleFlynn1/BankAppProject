@@ -15,7 +15,7 @@ namespace DatabaseManagement
 
             using (db)
             {
-                UserAccount a1 = new UserAccount() { Username = "Kyle", Password = "Password", BankAccountID = 5 };
+                UserAccount a1 = new UserAccount() { Username = "Kyle", Password = "Password", BankAccountID = 1 };
                 BankAccount b1 = new BankAccount("Kyle Flynn") { UserAccount = a1 };
                 Card c1 = new Card("Debit", DateTime.Now) { BankAccount = b1 };
                 Card c2 = new Card("Credit", DateTime.Now) { BankAccount = b1 };
