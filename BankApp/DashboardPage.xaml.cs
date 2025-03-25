@@ -63,6 +63,10 @@ namespace BankApp
                 {
                     btnCardRight.Visibility = Visibility.Hidden;
                 }
+                else if (Account.AccountType == "Savings" && Account.CardCount >= 2)
+                {
+                    btnCardRight.Visibility = Visibility.Hidden;
+                }
                 else
                 {
                     btnAddCard.Visibility = Visibility.Visible;
@@ -156,22 +160,62 @@ namespace BankApp
                                     where b.UserID == UserID
                                     select b).FirstOrDefault();
 
-            if (bankAccountQuery != null)
+            if (AccountsPage.CurrentBankID != bankAccountQuery.BankID && AccountsPage.CurrentBankID != 0)
             {
-                Account = bankAccountQuery;
-                Account.CardCount = bankAccountQuery.Cards.Count();
-                UpdateCardDetails();
-                txtAccountBalance.Content = $"{Account.AccountBalance:c}";
-                if (Account.CardCount > 1)
+                var bankAccount = (from b in db.BankAccounts
+                                   where b.BankID == AccountsPage.CurrentBankID
+                                   select b).FirstOrDefault();
+                if (bankAccount != null)
                 {
-                    btnCardLeft.Visibility = Visibility.Hidden;
-                    btnAddCard.Visibility = Visibility.Hidden;
-                    btnCardRight.Visibility = Visibility.Visible;
+                    Account = bankAccount;
+                    AccountsPage.CurrentBankID = bankAccount.BankID;
+                    Account.CardCount = bankAccount.Cards.Count();
+                    UpdateCardDetails();
+                    txtAccountBalance.Content = $"{Account.AccountBalance:c}";
+                    if (Account.CardCount > 1)
+                    {
+                        btnCardLeft.Visibility = Visibility.Hidden;
+                        btnAddCard.Visibility = Visibility.Hidden;
+                        btnCardRight.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        btnCardLeft.Visibility= Visibility.Hidden;
+                        btnAddCard.Visibility= Visibility.Visible;
+                        btnCardRight.Visibility= Visibility.Hidden;
+                    }
+                }
+                else
+                {
+                    txtAccountBalance.Content = UserID;
                 }
             }
             else
             {
-                txtAccountBalance.Content = UserID;
+                if (bankAccountQuery != null)
+                {
+                    Account = bankAccountQuery;
+                    AccountsPage.CurrentBankID = bankAccountQuery.BankID;
+                    Account.CardCount = bankAccountQuery.Cards.Count();
+                    UpdateCardDetails();
+                    txtAccountBalance.Content = $"{Account.AccountBalance:c}";
+                    if (Account.CardCount > 1)
+                    {
+                        btnCardLeft.Visibility = Visibility.Hidden;
+                        btnAddCard.Visibility = Visibility.Hidden;
+                        btnCardRight.Visibility = Visibility.Visible;
+                        }
+                    else
+                    {
+                        btnCardLeft.Visibility= Visibility.Hidden;
+                        btnAddCard.Visibility= Visibility.Visible;
+                        btnCardRight.Visibility= Visibility.Hidden;
+                    }
+                }
+                else
+                {
+                    txtAccountBalance.Content = UserID;
+                }
             }
 
         }

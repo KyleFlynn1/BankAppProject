@@ -10,6 +10,53 @@
 
     <Grid Background="#FF28283E">
         <TextBlock HorizontalAlignment="Left" Margin="36,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="205" Foreground="White" FontFamily="Arial Black" FontSize="36" FontWeight="Bold" Text="Accounts"/>
+        <Button x:Name="secondAccountSwitchBTN" Content="Switch" FontSize="20" Background="#FF1D1D2F" Foreground="White" FontWeight="Bold" Margin="976,252,0,0" Click="secondAccountSwitchBTN_Click" Height="56" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="defaultAccountSwitchBTN" Content="Switch" FontSize="20" Background="#FF1D1D2F" Foreground="White" FontWeight="Bold"  Margin="976,90,0,0" Click="defaultAccountSwitchBTN_Click" Height="56" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="defaultBankSelectedTXT" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Selected" VerticalAlignment="Top" Height="31" Width="76" Foreground="White" FontSize="18" FontWeight="Bold" Margin="998,105,0,0"/>
+        <TextBlock x:Name="secondBankSelectedTXT" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Selected" VerticalAlignment="Top" Height="31" Width="76" Foreground="White" FontSize="18" FontWeight="Bold" Margin="998,269,0,0"/>
+        <Button x:Name="thirdAccountSwitchBTN" Content="Switch" FontSize="20" Background="#FF1D1D2F" Foreground="White" FontWeight="Bold" Margin="976,406,0,0" Click="thirdAccountSwitchBTN_Click" Height="56" Panel.ZIndex="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="thirdBankSelectedTXT" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Selected" VerticalAlignment="Top" Height="31" Width="76" Foreground="White" FontSize="18" FontWeight="Bold" Margin="998,419,0,0"/>
 
+        <StackPanel Margin="50,71,0,10" HorizontalAlignment="Left">
+            <Grid Height="100" Width="900" Background="#FF1D1D2F">
+                <Image Height="76" Width="75" Source="/BankIcon.png" Margin="10,0,815,24"/>
+                <Label Content="Default" Foreground="White" FontSize="22" FontWeight="Bold" Margin="4,62,805,-12"/>
+                <Label x:Name="accountTypeTXT1" Content="Current Account" Foreground="White" FontSize="22" FontWeight="Bold" Margin="686,58,10,5"/>
+                <Label x:Name="accountNumberTXT1" Content="| Account Number - 14541445341342" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,29,355,34"/>
+                <Label x:Name="accountBalanceTXT1" Content="| Account Balance - $999,999,999.00" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,58,355,5"/>
+                <Label x:Name="accountHolderTXT1" Content="| Account Holder - Kyle Flynn" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,0,355,63"/>
+                <Label x:Name="cardCount1" Content="| Cards - 5" Foreground="White" FontSize="22" FontWeight="Bold" Margin="761,0,0,62"/>
+            </Grid>
+            <Grid Height="56">
+                <Button x:Name="newAccBTN1" Content="New Account" FontSize="20" HorizontalAlignment="Center" Background="#FF1D1D2F" Foreground="White" Width="144" FontWeight="Bold" Margin="0,5,0,16" Click="newAccBTN1_Click"/>
+                <CheckBox x:Name="savingSelection1" Content="Savings Account" HorizontalAlignment="Left" Margin="338,8,0,0" VerticalAlignment="Top" Background="#FF1D1D2F" BorderBrush="#FF0C0C13" Foreground="White" Checked="savingSelection1_Checked"/>
+                <CheckBox x:Name="businessSelection1" Content="Business Account" HorizontalAlignment="Left" Margin="450,8,0,0" VerticalAlignment="Top" Background="#FF1D1D2F" BorderBrush="#FF0C0C13" Foreground="White" Checked="businessSelection1_Checked"/>
+                <Button x:Name="cancelBTN1" Content="Cancel" HorizontalAlignment="Left" Background="#FFFF4949" Foreground="White" Width="60" FontWeight="Bold" Margin="390,28,0,7" Click="cancelBTN1_Click"/>
+                <Button x:Name="confirmBTN1" Content="Confirm" HorizontalAlignment="Left" Background="#FF35FF0D" Foreground="White" Width="60" FontWeight="Bold" Margin="450,28,0,7" Click="confirmBTN1_Click"/>
+            </Grid>
+            <Grid x:Name="account2Grid" Height="100" Width="900" Background="#FF1D1D2F">
+                <Image Height="76" Width="75" Source="/BankIcon.png" Margin="10,12,815,12"/>
+                <Label x:Name="accountTypeTXT2" Content="Current Account" Foreground="White" FontSize="22" FontWeight="Bold" Margin="686,58,10,5"/>
+                <Label x:Name="accountNumberTXT2" Content="| Account Number - 14541445341342" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,29,355,34"/>
+                <Label x:Name="accountBalanceTXT2" Content="| Account Balance - $999,999,999.00" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,58,355,5"/>
+                <Label x:Name="accountHolderTXT2" Content="| Account Holder - Kyle Flynn" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,0,355,63"/>
+                <Label x:Name="cardCount2" Content="| Cards - 5" Foreground="White" FontSize="22" FontWeight="Bold" Margin="761,0,0,62"/>
+            </Grid>
+            <Grid Height="56">
+                <Button x:Name="newAccBTN2" Content="New Account" FontSize="20" HorizontalAlignment="Center" Background="#FF1D1D2F" Foreground="White" Width="144" FontWeight="Bold" Margin="0,5,0,16" Click="newAccBTN2_Click"/>
+                <CheckBox x:Name="savingSelection2" Content="Savings Account" HorizontalAlignment="Left" Margin="338,10,0,0" VerticalAlignment="Top" Background="#FF1D1D2F" BorderBrush="#FF0C0C13" Foreground="White" Checked="savingSelection2_Checked"/>
+                <CheckBox x:Name="businessSelection2" Content="Business Account" HorizontalAlignment="Left" Margin="450,10,0,0" VerticalAlignment="Top" Background="#FF1D1D2F" BorderBrush="#FF0C0C13" Foreground="White" Checked="businessSelection2_Checked"/>
+                <Button x:Name="cancelBTN2" Content="Cancel" HorizontalAlignment="Left" Background="#FFFF4949" Foreground="White" Width="60" FontWeight="Bold" Margin="390,30,0,5" Click="cancelBTN2_Click"/>
+                <Button x:Name="confirmBTN2" Content="Confirm" HorizontalAlignment="Left" Background="#FF35FF0D" Foreground="White" Width="60" FontWeight="Bold" Margin="450,30,0,5" Click="confirmBTN1_Click"/>
+            </Grid>
+            <Grid x:Name="account3Grid" Height="100" Width="900" Background="#FF1D1D2F">
+                <Image Height="76" Width="75" Source="/BankIcon.png" Margin="10,12,815,12"/>
+                <Label x:Name="accountTypeTXT3" Content="Current Account" Foreground="White" FontSize="22" FontWeight="Bold" Margin="686,58,10,5"/>
+                <Label x:Name="accountNumberTXT3" Content="| Account Number - 14541445341342" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,29,355,34"/>
+                <Label x:Name="accountBalanceTXT3" Content="| Account Balance - $999,999,999.00" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,58,355,5"/>
+                <Label x:Name="accountHolderTXT3" Content="| Account Holder - Kyle Flynn" Foreground="White" FontSize="22" FontWeight="Bold" Margin="110,0,355,63"/>
+                <Label x:Name="cardCount3" Content="| Cards - 5" Foreground="White" FontSize="22" FontWeight="Bold" Margin="761,0,0,62"/>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>

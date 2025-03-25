@@ -17,6 +17,7 @@ namespace BankApp
         public string AccountNumber { get; set; }
         public decimal AccountBalance { get; set; }
         public int CardCount { get; set; }
+        public string AccountType { get; set; }
 
         //Foreign Keys
         public virtual UserAccount UserAccount { get; set; }
@@ -51,6 +52,7 @@ namespace BankApp
         public void AppendCard(Card card)
         {
             Cards.Add(card);
+            CardCount++;
         }
 
         public void Deposit(decimal amount)

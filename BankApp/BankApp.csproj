@@ -89,6 +89,10 @@
     <Compile Include="Migrations\202503231620131_AddNewColumnToTransactions1.Designer.cs">
       <DependentUpon>202503231620131_AddNewColumnToTransactions1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202503252204394_AddBankTypeToBank.cs" />
+    <Compile Include="Migrations\202503252204394_AddBankTypeToBank.Designer.cs">
+      <DependentUpon>202503252204394_AddBankTypeToBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="TransactionsPage.xaml.cs">
@@ -167,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202503231620131_AddNewColumnToTransactions1.resx">
       <DependentUpon>202503231620131_AddNewColumnToTransactions1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202503252204394_AddBankTypeToBank.resx">
+      <DependentUpon>202503252204394_AddBankTypeToBank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

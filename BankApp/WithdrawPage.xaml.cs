@@ -144,7 +144,7 @@ namespace BankApp
             else if (WithdrawAmount > 0.0m && MethodName != "")
             {
                 var bankAccountQuery = (from b in db.BankAccounts
-                                        where b.UserID == LoginPage.UserID
+                                        where b.BankID == AccountsPage.CurrentBankID
                                         select b).FirstOrDefault();
 
                 GetDescription();
