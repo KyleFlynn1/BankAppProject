@@ -26,6 +26,7 @@ namespace BankApp
         public static int CurrentBankID = 0;
         public AccountsPage()
         {
+            //Run Methods on page load to ensure data is loaded correctly and UI Elements are hidden and shown where needed
             InitializeComponent();
             HideUI();
             SwitchButtonsShow();
@@ -130,6 +131,9 @@ namespace BankApp
             var secondBankAccount = bankAccounts.ElementAtOrDefault(1); 
             var thirdBankAccount = bankAccounts.ElementAtOrDefault(2);
 
+
+            confirmBTN3.Visibility = Visibility.Hidden;
+            cancelBTN3.Visibility = Visibility.Hidden;
             switch (bankAccountQueryCount)
             {
                 case 1:
@@ -335,6 +339,31 @@ namespace BankApp
                 thirdAccountSwitchBTN.Visibility = Visibility.Hidden;
                 thirdBankSelectedTXT.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void confirmBTN3_Click(object sender, RoutedEventArgs e)
+        {
+            //Change Full Frame to LoginPage until a new or same account is logged into
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.FullFrame.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+            //Reset Current BankID to 0 so DashboardPage start normally preventing previous users Bank ID messing with LoadData()
+            CurrentBankID = 0;
+        }
+
+        private void cancelBTN3_Click(object sender, RoutedEventArgs e)
+        {
+            //Change Buttons Visibilitys to only show relevant
+            logoutBTN.Visibility = Visibility.Visible;
+            confirmBTN3.Visibility = Visibility.Hidden;
+            cancelBTN3.Visibility = Visibility.Hidden;
+        }
+
+        private void logoutBTN_Click(object sender, RoutedEventArgs e)
+        {
+            //Change Buttons Visibilitys to only show relevant
+            confirmBTN3.Visibility = Visibility.Visible;
+            cancelBTN3.Visibility = Visibility.Visible;
+            logoutBTN.Visibility = Visibility.Hidden;
         }
     }
 }

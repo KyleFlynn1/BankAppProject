@@ -50,12 +50,16 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Rectangle HorizontalAlignment="Center" Height="375" Stroke="Black" VerticalAlignment="Center" Width="330" Fill="#FF1D1D2F"/>
-            <Rectangle HorizontalAlignment="Center" Height="375" Grid.Column="2" Stroke="#FF171725" VerticalAlignment="Center" Width="330" Fill="#FF1D1D2F"/>
-            <Rectangle HorizontalAlignment="Center" Height="375" Stroke="#FF171725" VerticalAlignment="Center" Width="330" Fill="#FF1D1D2F"/>
+            <Grid Background="#FF1D1D2F" Grid.Column="0" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
+
+            </Grid>
+            <Grid Background="#FF1D1D2F" Grid.Column="1" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
+                
+            </Grid>
+            <Grid Background="#FF1D1D2F" Grid.Column="2" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
+
+            </Grid>
         </Grid>
         <Label x:Name="txtCreditLimit" Content="Credit Limit :" HorizontalAlignment="Left" Margin="775,30,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="32" Width="199" RenderTransformOrigin="0.479,3.422"/>
-        <Rectangle HorizontalAlignment="Left" Height="375" Margin="395,0,0,0" Grid.Row="1" Grid.Column="1" Stroke="Black" VerticalAlignment="Center" Width="330" Fill="#FF1D1D2F"/>
-        <Rectangle HorizontalAlignment="Center" Height="375" Grid.Row="1" Stroke="#FF171725" VerticalAlignment="Center" Width="330" Fill="#FF1D1D2F"/>
     </Grid>
 </Page>

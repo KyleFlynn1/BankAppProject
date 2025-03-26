@@ -63,7 +63,7 @@ namespace BankApp
                 {
                     btnCardRight.Visibility = Visibility.Hidden;
                 }
-                else if (Account.AccountType == "Savings" && Account.CardCount >= 2)
+                else if (Account.AccountType == "Savings" && Account.CardCount <= 2)
                 {
                     btnCardRight.Visibility = Visibility.Hidden;
                 }
