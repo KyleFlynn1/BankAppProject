@@ -10,14 +10,22 @@
 
     <Grid>
         <Grid Background="#FF1D1D2F" Height="720" VerticalAlignment="Center">
-            <StackPanel Margin="453,236,453,236">
-                <TextBlock TextWrapping="Wrap" Foreground="White" Padding="0,4,0,5" FontFamily="Arial Black" FontSize="24" Height="35" Width="140"><Run Language="en-ie" Text="Username"/><LineBreak/><Run Language="en-ie"/></TextBlock>
+            <StackPanel Margin="453,166,453,236">
+                <TextBlock x:Name="txtAccountHolder" TextWrapping="Wrap" Foreground="White" Padding="0,4,0,5" FontFamily="Arial Black" FontSize="24" Height="35" Width="250" TextAlignment="Center"><Run Language="en-ie" Text="Full Name"/><LineBreak/><Run Language="en-ie"/></TextBlock>
+                <TextBox x:Name="accountHolderInput" TextWrapping="Wrap" Width="254" Foreground="#FF311F1F" BorderBrush="White" SelectionBrush="White" Height="32" HorizontalContentAlignment="Center" Padding="0,5,0,5" ScrollViewer.CanContentScroll="True" FontFamily="Arial" FontSize="18" />
+                <TextBlock x:Name="txtUserName" TextWrapping="Wrap" Foreground="White" Padding="0,4,0,5" FontFamily="Arial Black" FontSize="24" Height="35" Width="250" TextAlignment="Center"><Run Language="en-ie" Text="Username"/><LineBreak/><Run Language="en-ie"/></TextBlock>
                 <TextBox x:Name="usernameInput" TextWrapping="Wrap" Width="254" Foreground="#FF311F1F" BorderBrush="White" SelectionBrush="White" Height="32" HorizontalContentAlignment="Center" Padding="0,5,0,5" ScrollViewer.CanContentScroll="True" FontFamily="Arial" FontSize="18" />
-                <TextBlock TextWrapping="Wrap" Foreground="White" Padding="0,4,0,5" FontFamily="Arial Black" FontSize="24" Height="35" Width="134"><Run Language="en-ie" Text="Password"/><LineBreak/><Run Language="en-ie"/></TextBlock>
+                <TextBlock x:Name="txtPassword" TextWrapping="Wrap" Foreground="White" Padding="0,4,0,5" FontFamily="Arial Black" FontSize="24" Height="35" Width="250" TextAlignment="Center"><Run Language="en-ie" Text="Password"/><LineBreak/><Run Language="en-ie"/></TextBlock>
                 <TextBox x:Name="passwordInput" TextWrapping="Wrap" Width="254" Foreground="#FF311F1F" BorderBrush="White" SelectionBrush="White" Height="32" HorizontalContentAlignment="Center" Padding="0,5,0,5" ScrollViewer.CanContentScroll="True" FontFamily="Arial" FontSize="18" />
-                <Button Content="Submit" Width="230" FontFamily="Arial Black" Background="#FF42FF00" Foreground="White" Height="51" FontSize="22" Margin="5,15,5,5" Click="Button_Click"/>
-                <TextBlock x:Name="txtError" TextWrapping="Wrap" Foreground="Red" Padding="0,4,0,5" FontFamily="Calibri" FontSize="18" Height="44" Width="252" TextAlignment="Center"><Run/><LineBreak/><Run/></TextBlock>
+                <Button x:Name="submitBTN" Content="Submit" Width="230" FontFamily="Arial Black" Background="#FF42FF00" Foreground="White" Height="51" FontSize="22" Margin="5,15,5,5" Click="Button_Click"/>
+                <TextBlock
+            Width="252" TextWrapping="Wrap" TextAlignment="Center" Padding="0,4,0,5" x:Name="txtError" Height="44" FontSize="18" FontFamily="Calibri" Foreground="Red"><Run
+            /><LineBreak
+            /><Run
+            /></TextBlock>
             </StackPanel>
+            <Button x:Name="createAccountBTN" Content="Create Account" HorizontalAlignment="Left" Margin="980,626,0,0" VerticalAlignment="Top" Height="32" Width="134" Foreground="White" Background="#FF00A7FF" FontSize="16" FontWeight="Bold" Click="createAccountBTN_Click"/>
+            <Button x:Name="loginAccountBTN" Content="Login" HorizontalAlignment="Left" Margin="980,626,0,0" VerticalAlignment="Top" Height="32" Width="134" Foreground="White" Background="#FF00A7FF" FontSize="16" FontWeight="Bold" Click="loginAccountBTN_Click" />
         </Grid>
     </Grid>
 </Page>
