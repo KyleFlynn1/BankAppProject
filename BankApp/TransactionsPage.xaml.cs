@@ -20,6 +20,7 @@ namespace BankApp
     /// </summary>
     public partial class TransactionsPage : Page
     {
+        static public bool IsListReversed = false;
         public TransactionsPage()
         {
             InitializeComponent();
@@ -30,7 +31,11 @@ namespace BankApp
         {
             List<Transaction> ReversedTransactions = new List<Transaction>();
             ReversedTransactions = DashboardPage.Account.Transactions;
-            ReversedTransactions.Reverse();
+            if(IsListReversed == false)
+            {
+                ReversedTransactions.Reverse();
+                IsListReversed = true;
+            }
             lbxTransactions.ItemsSource = ReversedTransactions;
         }
 

@@ -246,6 +246,8 @@ namespace BankApp
             var defaultBankAccount = bankAccounts.ElementAtOrDefault(0);
             DashboardPage.Account = defaultBankAccount;
             CurrentBankID = defaultBankAccount.BankID;
+            //So Transaction Page will reverse new List as its not already when switching accounts
+            TransactionsPage.IsListReversed = false;
             //Show and Hide Switch Buttons
             SwitchButtonsShow();
         }
@@ -260,6 +262,8 @@ namespace BankApp
             var secondBankAccount = bankAccounts.ElementAtOrDefault(1); 
             DashboardPage.Account = secondBankAccount;
             CurrentBankID = secondBankAccount.BankID;
+            //So Transaction Page will reverse new List as its not already when switching accounts
+            TransactionsPage.IsListReversed = false;
             //Show and Hide Switch Buttons
             SwitchButtonsShow();
         }
@@ -274,6 +278,8 @@ namespace BankApp
             var thirdBankAccount = bankAccounts.ElementAtOrDefault(2);
             DashboardPage.Account = thirdBankAccount;
             CurrentBankID = thirdBankAccount.BankID;
+            //So Transaction Page will reverse new List as its not already when switching accounts
+            TransactionsPage.IsListReversed = false;
             //Show and Hide Switch Buttons
             SwitchButtonsShow();
         }

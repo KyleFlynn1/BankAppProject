@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,20 @@ namespace BankApp
     /// </summary>
     public partial class DashboardPage : Page
     {
+        //Public and Static Variables
         public static BankAccount Account;
+        static decimal TransferAmount;
+        static string TransferBankNumber;
+        public int CurrentCard = 0;
         UserData db = new UserData();
         public DashboardPage()
         {
             InitializeComponent();
 
             LoadData();
+
+            transferCancelBTN.Visibility = Visibility.Hidden;
+            transferConfirmBTN.Visibility = Visibility.Hidden;
         }
         /// <summary>
         /// Move back to the left card and update details
@@ -220,7 +228,73 @@ namespace BankApp
 
         }
 
-        //public static BankAccount Account;
-        public int CurrentCard = 0;
+        //Transfer Tile Methods
+        private void transferBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (decimal.TryParse(transferAmountInput.Text, out TransferAmount))
+            {
+                TransferBankNumber = transferBankIDInput.Text;
+                if (TransferAmount <= 0.0m)
+                {
+                    transferMSGTxt.Foreground = new SolidColorBrush(Colors.Red);
+                    transferMSGTxt.Content = "Invalid Amount entered!";
+                }
+                else if (TransferAmount > 0.0m)
+                {
+                    var bankAccountQuery = (from b in db.BankAccounts
+                                            where b.AccountNumber == TransferBankNumber
+                                            select b).FirstOrDefault();
+
+                    if (bankAccountQuery != null)
+                    {
+                        transferConfirmBTN.Visibility = Visibility.Visible;
+                        transferCancelBTN.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        transferMSGTxt.Foreground = new SolidColorBrush(Colors.Red);
+                        transferMSGTxt.Content = "Invalid Bank Account Number  entered!";
+                    }
+                }
+            }
+            else
+            {
+                transferMSGTxt.Foreground = new SolidColorBrush(Colors.Red);
+                transferMSGTxt.Content = "Invalid Amount entered!";
+            }
+            
+        }
+
+        private void transferCancelBTN_Click(object sender, RoutedEventArgs e)
+        {
+            transferConfirmBTN.Visibility= Visibility.Hidden;
+            transferCancelBTN.Visibility = Visibility.Hidden;
+            transferBTN.Visibility = Visibility.Visible;
+        }
+
+        private void transferConfirmBTN_Click(object sender, RoutedEventArgs e)
+        {
+            var bankAccountQuery = (from b in db.BankAccounts
+                                    where b.AccountNumber == TransferBankNumber
+                                    select b).FirstOrDefault();
+
+            transferMSGTxt.Foreground = new SolidColorBrush(Colors.Green);
+            transferMSGTxt.Content = $"Succesful Transfer of + {TransferAmount:c} to {bankAccountQuery.AccountHolder}";
+            bankAccountQuery.Deposit(TransferAmount);
+            Transaction t1 = new Transaction(TransferAmount, "Succesful Transfer In", Account.AccountNumber, DateTime.Now, 0.55m, "Deposit");
+            bankAccountQuery.Transactions.Add(t1);
+            Account.Withdraw(TransferAmount);
+            Transaction t2 = new Transaction(TransferAmount, "Succesful Transfer Out", bankAccountQuery.AccountNumber, DateTime.Now, 0.55m, "Withdraw");
+            Account.Transactions.Add(t2);
+            db.Transactions.Add(t1);
+            db.Transactions.Add(t2);
+            db.SaveChanges();
+            transferBankIDInput.Text = "";
+            transferAmountInput.Text = "";
+            TransferAmount = 0;
+            TransferBankNumber = "";
+            LoadData();
+        }
+        //End of Transfer Tile Methods
     }
 }

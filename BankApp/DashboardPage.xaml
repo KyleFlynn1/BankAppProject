@@ -54,9 +54,20 @@
 
             </Grid>
             <Grid Background="#FF1D1D2F" Grid.Column="1" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
-                
+
             </Grid>
             <Grid Background="#FF1D1D2F" Grid.Column="2" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
+                <Label Content="Transfer" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+                <StackPanel Margin="0,57,0,0">
+                    <Label Content="Recievers Bank ID" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="transferBankIDInput" TextWrapping="Wrap" Text="" Width="171" Background="#FF28283E" Foreground="White" SelectionBrush="#FF656565" BorderBrush="{x:Null}" FontSize="16" Height="29"/>
+                    <Label Content="Amount" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="transferAmountInput" TextWrapping="Wrap" Text="" Width="171" Background="#FF28283E" Foreground="White" SelectionBrush="#FF656565" BorderBrush="{x:Null}" FontSize="16" Height="29"/>
+                    <Button x:Name="transferBTN" Content="Transfer" HorizontalAlignment="Center" Margin="0,15,0,0" Height="38" Width="122" Foreground="White" Background="#FFFFBB00" FontSize="24" FontFamily="Segoe UI Semibold" Click="transferBTN_Click"/>
+                    <Button x:Name="transferCancelBTN" Content="Cancel" Background="#FFFF4949" Foreground="White" FontWeight="Bold" Width="120" Height="35" Click="transferCancelBTN_Click"  />
+                    <Button x:Name="transferConfirmBTN"  Content="Confirm" Background="#FF35FF0D" Foreground="White" FontWeight="Bold" Width="120" Height="35" Click="transferConfirmBTN_Click"  />
+                    <Label x:Name="transferMSGTxt" Content="" HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="White" Height="52"/>
+                </StackPanel>
 
             </Grid>
         </Grid>
