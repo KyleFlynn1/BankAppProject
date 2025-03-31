@@ -10,7 +10,7 @@
 
     <Grid Background="#FF28283E">
         <Grid Background="#FF1A1A2B" Margin="50,50,820,289">
-            <Label Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <Label x:Name="coinNameLBL" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
             <Label Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
             <StackPanel>
                 <Label Content="Coin Rank : 1" HorizontalAlignment="Center" Margin="0,153,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
