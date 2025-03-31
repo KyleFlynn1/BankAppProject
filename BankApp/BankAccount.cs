@@ -52,7 +52,6 @@ namespace BankApp
         public void AppendCard(Card card)
         {
             Cards.Add(card);
-            CardCount++;
         }
 
         public void Deposit(decimal amount)

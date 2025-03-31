@@ -8,8 +8,52 @@
       d:DesignHeight="704.04" d:DesignWidth="1130"
       Title="WalletsPage">
 
-    <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="704" VerticalAlignment="Center" Width="1130" Fill="#FF4EFF00"/>
-
+    <Grid Background="#FF28283E">
+        <Grid Background="#FF1A1A2B" Margin="50,50,820,289">
+            <Label Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
+            <StackPanel>
+                <Label Content="Coin Rank : 1" HorizontalAlignment="Center" Margin="0,153,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Change : -0.52% " Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="240"/>
+            </StackPanel>
+            <Image HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="110"/>
+        </Grid>
+        <Grid Background="#FF1A1A2B" Margin="435,50,435,289">
+            <Label Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
+            <StackPanel>
+                <Label Content="Coin Rank : 1" HorizontalAlignment="Center" Margin="0,153,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Change : -0.52% " Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="240"/>
+            </StackPanel>
+            <Image HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="110"/>
+        </Grid>
+        <Grid Background="#FF1A1A2B" Margin="820,50,50,289">
+            <Label Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
+            <StackPanel>
+                <Label Content="Coin Rank : 1" HorizontalAlignment="Center" Margin="0,153,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Change : -0.52% " Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="240"/>
+                <Label Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="240"/>
+            </StackPanel>
+            <Image HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="110"/>
+        </Grid>
+        <Grid Background="#FF1A1A2B" Margin="50,436,435,75">
+            
+        </Grid>
+        <Grid Background="#FF1A1A2B" Margin="50,653,646,10">
+            <Label Content="Wallet Address : SFDANHIFSD87432H8UE823HD823H" HorizontalAlignment="Center" VerticalAlignment="Center" Height="35" Width="414" FontSize="16" Foreground="White"/>
+        </Grid>
+        <Grid Background="#FF1A1A2B" Margin="820,436,50,75"/>
     </Grid>
 </Page>
