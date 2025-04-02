@@ -42,7 +42,7 @@
         </Button>
         <Label x:Name="lblCardCount" Content="Card 1/5" HorizontalAlignment="Left" Margin="509,245,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift Condensed" FontSize="24" Foreground="White" Height="32" Width="96" RenderTransformOrigin="0.479,3.422"/>
         <Label x:Name="txtCardType" Content="Credit" HorizontalAlignment="Left" Margin="631,27,0,0" VerticalAlignment="Top" FontFamily="Cascadia Mono" FontSize="22" Foreground="White" Height="37" Width="84"/>
-        <Label x:Name="txtAccountBalance" Grid.Row="0" Content="999,999" HorizontalAlignment="Left" Margin="20,44,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="34" Foreground="White" Height="52" Width="276" RenderTransformOrigin="0.523,0.264"/>
+        <Label x:Name="txtAccountBalance" Grid.Row="0" Content="999,999" HorizontalAlignment="Left" Margin="20,44,0,0" VerticalAlignment="Top" FontFamily="Arial Rounded MT Bold" FontSize="34" Foreground="White" Height="52" Width="348" RenderTransformOrigin="0.523,0.264"/>
         <Label Grid.Row="0" Content="Balance" HorizontalAlignment="Left" Margin="22,5,0,0" VerticalAlignment="Top" FontFamily="Arial Narrow" FontSize="30" Foreground="White" Height="52" Width="153" RenderTransformOrigin="0.523,0.264"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

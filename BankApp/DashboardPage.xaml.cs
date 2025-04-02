@@ -278,22 +278,33 @@ namespace BankApp
                                     where b.AccountNumber == TransferBankNumber
                                     select b).FirstOrDefault();
 
-            transferMSGTxt.Foreground = new SolidColorBrush(Colors.Green);
-            transferMSGTxt.Content = $"Succesful Transfer of + {TransferAmount:c} to {bankAccountQuery.AccountHolder}";
-            bankAccountQuery.Deposit(TransferAmount);
-            Transaction t1 = new Transaction(TransferAmount, "Succesful Transfer In", Account.AccountNumber, DateTime.Now, 0.55m, "Deposit");
-            bankAccountQuery.Transactions.Add(t1);
-            Account.Withdraw(TransferAmount);
-            Transaction t2 = new Transaction(TransferAmount, "Succesful Transfer Out", bankAccountQuery.AccountNumber, DateTime.Now, 0.55m, "Withdraw");
-            Account.Transactions.Add(t2);
-            db.Transactions.Add(t1);
-            db.Transactions.Add(t2);
-            db.SaveChanges();
-            transferBankIDInput.Text = "";
-            transferAmountInput.Text = "";
-            TransferAmount = 0;
-            TransferBankNumber = "";
-            LoadData();
+            if (bankAccountQuery != null)
+            {
+                transferMSGTxt.Foreground = new SolidColorBrush(Colors.Green);
+                transferMSGTxt.Content = $"Succesful Transfer of + {TransferAmount:c} to {bankAccountQuery.AccountHolder}";
+                bankAccountQuery.Deposit(TransferAmount);
+                Transaction t1 = new Transaction(TransferAmount, "Succesful Transfer In", Account.AccountNumber, DateTime.Now, 0.55m, "Deposit");
+                bankAccountQuery.Transactions.Add(t1);
+                Account.Withdraw(TransferAmount);
+                Transaction t2 = new Transaction(TransferAmount, "Succesful Transfer Out", bankAccountQuery.AccountNumber, DateTime.Now, 0.55m, "Withdraw");
+                Account.Transactions.Add(t2);
+                db.Transactions.Add(t1);
+                db.Transactions.Add(t2);
+                db.SaveChanges();
+                transferBankIDInput.Text = "";
+                transferAmountInput.Text = "";
+                TransferAmount = 0;
+                TransferBankNumber = "";
+                transferConfirmBTN.Visibility = Visibility.Hidden;
+                transferCancelBTN.Visibility = Visibility.Hidden;
+                transferBTN.Visibility = Visibility.Visible;
+                LoadData();
+            }
+            else
+            {
+                transferMSGTxt.Foreground = new SolidColorBrush(Colors.Red);
+                transferMSGTxt.Content = $"Transfer Failed not a valid Bank";
+            }
         }
         //End of Transfer Tile Methods
     }
