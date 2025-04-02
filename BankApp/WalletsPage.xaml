@@ -9,42 +9,42 @@
       Title="WalletsPage">
 
     <Grid Background="#FF28283E">
-        <Grid Background="#FF1A1A2B" Margin="50,50,820,289">
-            <Label x:Name="coinNameLBL" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
-            <Label x:Name="coinSymbolLBL" Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
+        <Grid Background="#FF1A1A2B" Margin="50,50,800,289">
+            <Label x:Name="coinNameLBL" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+            <Label x:Name="coinSymbolLBL" Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold" FontFamily="Segoe UI Black"/>
             <StackPanel Margin="0,155,0,0">
-                <Label x:Name="coinRankLBL" Content="Coin Rank : 1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinAllTimeHighLBL" Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinCurrentPriceLBL" Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinDayChangeLBL" Content="Change : -0.52% " Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinAMTOwnedLBL" Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinPNLBL" Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="240"/>
+                <Label x:Name="coinRankLBL" Content="Coin Rank : 1" HorizontalAlignment="Center" Foreground="White" FontSize="16" Width="140" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinAllTimeHighLBL" Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinCurrentPriceLBL" Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinDayChangeLBL" Content="Change : -0.52% " Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinAMTOwnedLBL" Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinPNLBL" Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
             </StackPanel>
             <Image x:Name="coinImage" HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="100" AllowDrop="True" Stretch="Fill"/>
         </Grid>
-        <Grid Background="#FF1A1A2B" Margin="435,50,435,289">
-            <Label x:Name="coinNameLBLTwo" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
-            <Label x:Name="coinSymbolLBLTwo" Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
+        <Grid Background="#FF1A1A2B" Margin="425,50,425,289">
+            <Label x:Name="coinNameLBLTwo" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+            <Label x:Name="coinSymbolLBLTwo" Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold" FontFamily="Segoe UI Black"/>
             <StackPanel Margin="0,155,0,0">
-                <Label x:Name="coinRankLBLTwo" Content="Coin Rank : 1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinAllTimeHighLBLTwo" Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinCurrentPriceLBLTwo" Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinDayChangeLBLTwo" Content="Change : -0.52% " Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinAMTOwnedLBLTwo" Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinPNLBLTwo" Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="240"/>
+                <Label x:Name="coinRankLBLTwo" Content="Coin Rank : 1" HorizontalAlignment="Center" Foreground="White" FontSize="16" Width="140" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinAllTimeHighLBLTwo" Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinCurrentPriceLBLTwo" Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinDayChangeLBLTwo" Content="Change : -0.52% " Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinAMTOwnedLBLTwo" Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinPNLBLTwo" Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
             </StackPanel>
             <Image x:Name="coinImageTwo" HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="100" AllowDrop="True" Stretch="Fill"/>
         </Grid>
-        <Grid Background="#FF1A1A2B" Margin="820,50,50,289">
-            <Label x:Name="coinNameLBLThree" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold"/>
-            <Label x:Name="coinSymbolLBLThree" Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold"/>
+        <Grid Background="#FF1A1A2B" Margin="800,50,50,289">
+            <Label x:Name="coinNameLBLThree" Content="Coin Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+            <Label x:Name="coinSymbolLBLThree" Content="Symbol" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="17" FontWeight="Bold" FontFamily="Segoe UI Black"/>
             <StackPanel Margin="0,155,0,0">
-                <Label x:Name="coinRankLBLThree" Content="Coin Rank : 1" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinAllTimeHighLBLThree" Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinCurrentPriceLBLThree" Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinDayChangeLBLThree" Content="Change : -0.52% " Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinAMTOwnedLBLThree" Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="240"/>
-                <Label x:Name="coinPNLBLThree" Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="240"/>
+                <Label x:Name="coinRankLBLThree" Content="Coin Rank : 1" HorizontalAlignment="Center" Foreground="White" FontSize="16" Width="140" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinAllTimeHighLBLThree" Content="All Time High : 19500.471361532" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinCurrentPriceLBLThree" Content="Current Price : 9370.9993109108" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinDayChangeLBLThree" Content="Change : -0.52% " Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinAMTOwnedLBLThree" Content="Amount Owned : 0.543" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
+                <Label x:Name="coinPNLBLThree" Content="Current P/L : +5.43%" Foreground="White" FontSize="16" Width="280" FontFamily="Cascadia Mono"/>
             </StackPanel>
             <Image x:Name="coinImageThree" HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="100" AllowDrop="True" Stretch="Fill"/>
         </Grid>

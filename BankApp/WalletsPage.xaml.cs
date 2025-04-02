@@ -54,7 +54,7 @@ namespace BankApp
                 //Get Data for Coin 1 and Fill details in for card 1
                 coinNameLBL.Content = $"{myDeserializedClass.data.coins[0].name}";
                 coinSymbolLBL.Content = $"{myDeserializedClass.data.coins[0].symbol}";
-                coinCurrentPriceLBL.Content = $"Current Price:  {myDeserializedClass.data.coins[0].price:c2}";
+                coinCurrentPriceLBL.Content = $"Current Price: {myDeserializedClass.data.coins[0].price:c2}";
                 coinAllTimeHighLBL.Content = $"Market Cap: {myDeserializedClass.data.coins[0].marketCap}";
                 coinRankLBL.Content = $"Coin Rank: {myDeserializedClass.data.coins[0].rank}";
                 coinDayChangeLBL.Content = $"Change: {myDeserializedClass.data.coins[0].change}%";
