@@ -37,101 +37,31 @@ namespace BankApp
 
         private void quickAddBTN10_Click(object sender, RoutedEventArgs e)
         {
-            if(quickAddType == true)
-            {
-                if (DepositAmount >= 10.0m)
-                {
-                    QuickDepositAmount -= 10.0m;
-                }
-                else
-                {
-                    QuickDepositAmount -= DepositAmount;
-                }
-            }
-            else if (quickAddType == false)
-            {
-                QuickDepositAmount += 10.0m;
-            }
+            QuickAdd(10.00m);
             UpdateDepositAmountBox();
         }
 
         private void quickAddBTN25_Click(object sender, RoutedEventArgs e)
         {
-            if (quickAddType == true)
-            {
-                if (DepositAmount >= 25.0m)
-                {
-                    QuickDepositAmount -= 25.0m;
-                }
-                else
-                {
-                    QuickDepositAmount -= DepositAmount;
-                }
-            }
-            else if (quickAddType == false)
-            {
-                QuickDepositAmount += 25.0m;
-            }
+            QuickAdd(25.00m); 
             UpdateDepositAmountBox();
         }
 
         private void quickAddBTN50_Click(object sender, RoutedEventArgs e)
         {
-            if (quickAddType == true)
-            {
-                if (DepositAmount >= 50.0m)
-                {
-                    QuickDepositAmount -= 50.0m;
-                }
-                else
-                {
-                    QuickDepositAmount -= DepositAmount;
-                }
-            }
-            else if (quickAddType == false)
-            {
-                QuickDepositAmount += 50.0m;
-            }
+            QuickAdd(50.00m);
             UpdateDepositAmountBox();
         }
 
         private void quickAddBTN100_Click(object sender, RoutedEventArgs e)
         {
-            if (quickAddType == true)
-            {
-                if (DepositAmount >= 100.0m)
-                {
-                    QuickDepositAmount -= 100.0m;
-                }
-                else
-                {
-                    QuickDepositAmount -= DepositAmount;
-                }             
-            }
-            else if (quickAddType == false)
-            {
-                QuickDepositAmount += 100.0m;
-            }
+            QuickAdd(100.0m);
             UpdateDepositAmountBox();
         }
 
         private void quickAddBTN250_Click(object sender, RoutedEventArgs e)
         {
-            if (quickAddType == true)
-            {
-                if (DepositAmount >= 250.0m)
-                {
-                    QuickDepositAmount -= 250.0m;
-                }
-                else
-                {
-                    QuickDepositAmount -= DepositAmount;
-                }
-            }
-            else if (quickAddType == false)
-            {
-                QuickDepositAmount += 250.0m;
-            }
+            QuickAdd(250.00m);
             UpdateDepositAmountBox();
         }
 
@@ -265,6 +195,25 @@ namespace BankApp
                 quickAddBTN50.Content = "+50";
                 quickAddBTN100.Content = "+100";
                 quickAddBTN250.Content = "+250";
+            }
+        }
+
+        public void QuickAdd(decimal amount)
+        {
+            if (quickAddType == true)
+            {
+                if (DepositAmount >= amount)
+                {
+                    QuickDepositAmount -= amount;
+                }
+                else
+                {
+                    QuickDepositAmount -= DepositAmount;
+                }
+            }
+            else if (quickAddType == false)
+            {
+                QuickDepositAmount += amount;
             }
         }
     }
