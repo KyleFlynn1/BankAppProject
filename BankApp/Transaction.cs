@@ -44,9 +44,17 @@ namespace BankApp
             {
                 return $"{TransactionDate.ToShortDateString(),-12}- {TransactionAmount.ToString("C2"),-18}  {OtherParty,-15}{Description,-40}";
             }
+            else if (TransactionType == "CryptoB")
+            {
+                return $"{TransactionDate.ToShortDateString(),-12}- {TransactionAmount.ToString("C2"),-18}  {OtherParty,-15}{Description,-40}";
+            }
+            else if (TransactionType == "CryptoS")
+            {
+                return $"{TransactionDate.ToShortDateString(),-12}+ {TransactionAmount.ToString("C2"),-18}  {OtherParty,-15}{Description,-40}";
+            }
             else
             {
-                return $"{TransactionDate.ToShortDateString(),-12}{TransactionAmount.ToString("C2"),-18}  {OtherParty,-15}{Description,-40}";
+                return $"{TransactionDate.ToShortDateString(),-12} {TransactionAmount.ToString("C2"),-18}  {OtherParty,-15}{Description,-40}";
             }
 
         }

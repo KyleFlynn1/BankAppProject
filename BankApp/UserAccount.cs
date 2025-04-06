@@ -34,6 +34,7 @@ namespace BankApp
         public DbSet<Transaction> Transactions { get; set;}
         public DbSet<Wallet> Wallets { get; set;}
         public DbSet<UserAccount> Users { get; set;}
-
+        public DbSet<OwnedCoin> OwnedCoins { get; set;}
+        public DbSet<CoinTransaction> CoinTransactions { get; set; }
     }
 }
