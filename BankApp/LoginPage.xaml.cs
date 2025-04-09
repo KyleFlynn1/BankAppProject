@@ -65,6 +65,7 @@ namespace BankApp
                     b1.Cards.Add(c1);
                     b1.CardCount = 1;
                     a1.BankAccounts.Add(b1);
+                    b1.AccountType = "Current";
 
                     //Add Data to DataBase and Save
                     db.Users.Add(a1);

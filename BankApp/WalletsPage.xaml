@@ -59,11 +59,11 @@
                 <Label Content="Initial investment" HorizontalAlignment="Left" Margin="223,25,0,0" VerticalAlignment="Top" Width="127" Foreground="White" FontSize="14" FontWeight="Bold"/>
                 <Label Content="Change" HorizontalAlignment="Left" Margin="283,54,0,0" VerticalAlignment="Top" Width="67" Foreground="White" FontSize="14" RenderTransformOrigin="0.633,0.408" FontWeight="Bold"/>
                 <Label Content="Average Price" HorizontalAlignment="Left" Margin="11,84,0,0" VerticalAlignment="Top" Width="110" Foreground="White" FontSize="14" FontWeight="Bold"/>
-                <TextBlock x:Name="amountOwnedTXT" HorizontalAlignment="Left" Margin="126,32,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="146"/>
-                <TextBlock x:Name="totalValueTXT" HorizontalAlignment="Left" Margin="126,61,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14"/>
-                <TextBlock x:Name="avgPriceTXT" HorizontalAlignment="Left" Margin="126,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14"/>
-                <TextBlock x:Name="initialInvestmentTXT" HorizontalAlignment="Left" Margin="362,32,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="134"/>
-                <TextBlock x:Name="changeTXT" HorizontalAlignment="Left" Margin="362,61,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="134"/>
+                <TextBlock x:Name="amountOwnedTXT" HorizontalAlignment="Left" Margin="126,32,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="146"/>
+                <TextBlock x:Name="totalValueTXT" HorizontalAlignment="Left" Margin="126,61,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14"/>
+                <TextBlock x:Name="avgPriceTXT" HorizontalAlignment="Left" Margin="126,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14"/>
+                <TextBlock x:Name="initialInvestmentTXT" HorizontalAlignment="Left" Margin="362,32,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="134"/>
+                <TextBlock x:Name="changeTXT" HorizontalAlignment="Left" Margin="362,61,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="134"/>
                 <Rectangle HorizontalAlignment="Left" Height="100" Margin="350,25,0,0" VerticalAlignment="Top" Width="2" Fill="White"/>
                 <Rectangle HorizontalAlignment="Left" Height="100" Margin="119,25,0,0" VerticalAlignment="Top" Width="2" Fill="White"/>
                 <Label Content="Details" HorizontalAlignment="Left" Margin="126,-4,0,0" VerticalAlignment="Top" Width="88" Foreground="White" FontSize="14" FontWeight="Bold"/>
@@ -85,7 +85,26 @@
                 <Button x:Name="purchaseBTN" Content="Try Purchase" HorizontalAlignment="Left" Margin="524,94,0,0" VerticalAlignment="Top" Foreground="White" Background="#FF14FF43" Height="27" Width="82" Click="purchaseBTN_Click"/>
                 <TextBlock x:Name="errorTXT" Margin="510,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="11" Width="110" HorizontalAlignment="Left" TextAlignment="Center" Height="32"/>
             </Grid>
-            <Grid x:Name="buyCoinGrid" Background="#FF1A1A2B" Margin="800,436,50,75"/>
+
+            <Grid x:Name="buyCoinGrid" Background="#FF1A1A2B" Margin="800,436,50,75">
+                <Label Content="Total Value" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="90" Foreground="White" FontSize="14" FontWeight="Bold" Margin="37,101,0,0"/>
+                <TextBlock x:Name="totalValueAllTXT" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Margin="127,109,0,0" RenderTransformOrigin="0.88,-0.584"/>
+                <Label Content="Initial investment" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="127" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,43,0,0"/>
+                <Label Content="Change" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="67" Foreground="White" FontSize="14" RenderTransformOrigin="0.633,0.408" FontWeight="Bold" Margin="60,73,0,0"/>
+                <TextBlock x:Name="totalInvestmentTXT" HorizontalAlignment="Left"  Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="143" Margin="127,50,0,0"/>
+                <TextBlock x:Name="totalChangeTXT" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="14" Width="134" Margin="127,80,0,0"/>
+                <Label Content="Total Stats" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="82" Foreground="White" FontSize="14" FontWeight="Bold" Margin="0,8,0,0"/>
+                <Rectangle HorizontalAlignment="Center" Height="100"  VerticalAlignment="Top" Width="2" Fill="White" RenderTransformOrigin="0.5,0.5" Margin="0,-12,0,0">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </Grid>
             <Grid Background="#FF1A1A2B" Margin="50,634,425,19" >
                 <Label x:Name="walletAddressLBL" Content="Wallet Address : SFDANHIFSD87432H8UE823HD823H" HorizontalAlignment="Center" VerticalAlignment="Center" Height="27" Width="635" FontSize="16" Foreground="White" FontFamily="Bahnschrift" Panel.ZIndex="2" Background="{x:Null}"/>
             </Grid>
@@ -94,5 +113,6 @@
             <Label Content="Would you like to Create a Wallet" HorizontalAlignment="Center" Margin="0,275,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Arial Black"/>
             <Button x:Name="confirmBTN" Content="Yes" Background="#FF35FF0D" Foreground="White" FontWeight="Bold"   Margin="468,326,468,326" RenderTransformOrigin="1.045,0.679" FontSize="16" Click="confirmBTN_Click" />
         </Grid>
+
     </Grid>
 </Page>

@@ -21,6 +21,7 @@ using System.Windows.Interop;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Threading;
+using System.Security.Principal;
 
 namespace BankApp
 {
@@ -56,6 +57,7 @@ namespace BankApp
             {
                 MainGrid.Visibility = Visibility.Visible;
                 walletAddressLBL.Content = $"Wallet Address : {walletQuery.WalletAddress}";
+                wallet = walletQuery;
             }
             else
             {
@@ -130,7 +132,13 @@ namespace BankApp
                 ImageURLThree = ImageURLThree.Remove(ImageURLThree.Length - 3, 3);
                 ImageURLThree = ImageURLThree + "png";
                 coinImageThree.Source = new BitmapImage(new Uri(ImageURLThree));
-                UpdateCards();
+                var hasCoins = (from c in db.OwnedCoins
+                                    where c.WalletID == wallet.WalletID
+                                    select c).FirstOrDefault();
+                if (hasCoins != null && wallet.WalletID != 0)
+                {
+                    UpdateCards();
+                }
 
             }
         }
@@ -143,6 +151,7 @@ namespace BankApp
             OwnedCoin c3 = new OwnedCoin(myDeserializedClass.data.coins[2].uuid);
             w1.UserAccount = db.Users.Find(LoginPage.UserID);
             db.Wallets.Add(w1);
+            db.SaveChanges();
             c1.WalletID = w1.WalletID;
             c2.WalletID = w1.WalletID;
             c3.WalletID = w1.WalletID;
@@ -150,6 +159,7 @@ namespace BankApp
             db.OwnedCoins.Add(c2);
             db.OwnedCoins.Add(c3);
             db.SaveChanges();
+            wallet = w1;
             MainGrid.Visibility = Visibility.Visible;
             CreateWalletGrid.Visibility = Visibility.Hidden;
         }
@@ -299,6 +309,37 @@ namespace BankApp
             coinPNLBL.Content = $"Current P/L:{(selectedCoinOne.OwnedAmount * myDeserializedClass.data.coins[0].price) - (selectedCoinOne.OwnedAmount * selectedCoinOne.AvgPricePerCoin):C2}";
             coinPNLBLTwo.Content = $"Current P/L: {(selectedCoinTwo.OwnedAmount * myDeserializedClass.data.coins[1].price) - (selectedCoinTwo.OwnedAmount * selectedCoinTwo.AvgPricePerCoin):C2}";
             coinPNLBLThree.Content = $"Current P/L: {(selectedCoinThree.OwnedAmount * myDeserializedClass.data.coins[2].price) - (selectedCoinThree.OwnedAmount * selectedCoinThree.AvgPricePerCoin):C2}";
+
+            //Details to show for total stats
+            //Total Invested Caluclation and Text
+            decimal totalInvestment = (selectedCoinOne.OwnedAmount * selectedCoinOne.AvgPricePerCoin) + (selectedCoinTwo.OwnedAmount * selectedCoinTwo.AvgPricePerCoin) + (selectedCoinThree.OwnedAmount * selectedCoinThree.AvgPricePerCoin);
+            totalInvestmentTXT.Text = $"{totalInvestment:C2}";
+
+            //Total Change percent Calculation and Text
+            int coinsChangeCount = 0;
+            decimal coinOneChange =0, coinTwoChange = 0, coinThreeChange = 0;
+            if(selectedCoinOne.OwnedAmount > 0)
+            {
+                coinOneChange = ((myDeserializedClass.data.coins[0].price - selectedCoinOne.AvgPricePerCoin) / selectedCoinOne.AvgPricePerCoin) * 100;
+                coinsChangeCount ++;
+            }
+            if(selectedCoinTwo.OwnedAmount > 0)
+            {
+                coinTwoChange = ((myDeserializedClass.data.coins[1].price - selectedCoinTwo.AvgPricePerCoin) / selectedCoinTwo.AvgPricePerCoin) * 100;
+                coinsChangeCount++;
+            }
+            if (selectedCoinThree.OwnedAmount > 0)
+            {
+                coinThreeChange = ((myDeserializedClass.data.coins[2].price - selectedCoinThree.AvgPricePerCoin) / selectedCoinThree.AvgPricePerCoin) * 100;
+                coinsChangeCount++;
+            }
+            if(coinsChangeCount > 0)
+            {
+                totalChangeTXT.Text = $"{(coinOneChange + coinTwoChange + coinThreeChange) / coinsChangeCount:F2}%";
+            }
+
+            //Total Value Calculation and Text
+            totalValueAllTXT.Text = $"{selectedCoinOne.CurrentValue + selectedCoinTwo.CurrentValue + selectedCoinThree.CurrentValue:c2}";
         }
     }
 }
