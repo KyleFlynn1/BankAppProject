@@ -39,7 +39,6 @@ namespace BankApp
         { 
             InitializeComponent();
             GetAPIData();
-
             //Timer to Keep API constantly Refreshing for proper data and also showing up to date P/L
             timer.Interval = TimeSpan.FromSeconds(5);
             timer.Tick += Timer_Tick;
