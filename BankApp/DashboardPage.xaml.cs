@@ -27,12 +27,14 @@ namespace BankApp
         static decimal TransferAmount;
         static string TransferBankNumber;
         public int CurrentCard = 0;
+        MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
         UserData db = new UserData();
         public DashboardPage()
         {
             InitializeComponent();
 
             LoadData();
+            UpdateCryptoTile();
 
             transferCancelBTN.Visibility = Visibility.Hidden;
             transferConfirmBTN.Visibility = Visibility.Hidden;
@@ -307,5 +309,37 @@ namespace BankApp
             }
         }
         //End of Transfer Tile Methods
+        
+        //Start of Crypto Stats Tile
+        private void checkOutWalletBTN_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.MainFrame.Navigate(new Uri("WalletsPage.xaml", UriKind.Relative));
+        }
+
+        public void UpdateCryptoTile()
+        {
+            var getWallet = (from w in db.Wallets
+                             where LoginPage.UserID == w.UserID
+                             select w).FirstOrDefault();
+            if (getWallet != null)
+            {
+                var coins = db.OwnedCoins
+                    .Where(c => c.WalletID == getWallet.WalletID)
+                    .OrderBy(c => c.OwnedCoinID)
+                    .ToList();
+
+                var firstCoin = coins.ElementAtOrDefault(0);
+                var secondCoin = coins.ElementAtOrDefault(1);
+                var thirdCoin = coins.ElementAtOrDefault(2);
+
+                decimal totalValue = firstCoin.CurrentValue + secondCoin.CurrentValue + thirdCoin.CurrentValue;
+                decimal totalInvested = (firstCoin.AvgPricePerCoin * firstCoin.OwnedAmount) + (secondCoin.AvgPricePerCoin * secondCoin.OwnedAmount) + (thirdCoin.AvgPricePerCoin * thirdCoin.OwnedAmount);
+                decimal totalProfit = totalValue - totalInvested;
+
+                investedAmtTXT.Text = $"{totalInvested:C2}";
+                valueAmtTXT.Text = $"{totalValue:C2}";
+                profitAmtTXT.Text = $"{totalProfit:C2}";
+            }
+        }
     }
 }

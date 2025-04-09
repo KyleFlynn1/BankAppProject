@@ -55,10 +55,13 @@
             </Grid>
             <Grid Background="#FF1D1D2F" Grid.Column="1" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
                 <Label Content="Crypto Analytics" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
-                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Profit" VerticalAlignment="Center" Foreground="White" FontSize="18" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Profit" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,181,0,0"/>
                 <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Invested" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,57,0,0"/>
                 <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Value" VerticalAlignment="Top" Foreground="White" FontSize="18" FontWeight="Bold" Margin="0,116,0,0"/>
-                <Button Content="Check Out Wallet" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top" Background="#FF00E2FF" Foreground="White" Height="50" Width="149" FontWeight="Bold"/>
+                <Button x:Name="checkOutWalletBTN" Content="Check Out Wallet" HorizontalAlignment="Center" Margin="0,289,0,0" VerticalAlignment="Top" Background="#FF00E2FF" Foreground="White" Height="50" Width="149" FontWeight="Bold" Click="checkOutWalletBTN_Click" />
+                <TextBlock x:Name="investedAmtTXT" HorizontalAlignment="Center" Margin="0,86,0,0" TextWrapping="Wrap" Text="$0.00" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="149" TextAlignment="Center"/>
+                <TextBlock x:Name="valueAmtTXT" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" Text="$0.00" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="149" TextAlignment="Center"/>
+                <TextBlock x:Name="profitAmtTXT" HorizontalAlignment="Center" Margin="0,216,0,0" TextWrapping="Wrap" Text="$0.00" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="149" TextAlignment="Center"/>
             </Grid>
             <Grid Background="#FF1D1D2F" Grid.Column="2" Margin="24,25,25,24" RenderTransformOrigin="0.5,0.5">
                 <Label Content="Transfer" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
