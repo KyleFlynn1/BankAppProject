@@ -327,18 +327,27 @@ namespace BankApp
                     .Where(c => c.WalletID == getWallet.WalletID)
                     .OrderBy(c => c.OwnedCoinID)
                     .ToList();
-
+                
                 var firstCoin = coins.ElementAtOrDefault(0);
                 var secondCoin = coins.ElementAtOrDefault(1);
                 var thirdCoin = coins.ElementAtOrDefault(2);
 
-                decimal totalValue = firstCoin.CurrentValue + secondCoin.CurrentValue + thirdCoin.CurrentValue;
-                decimal totalInvested = (firstCoin.AvgPricePerCoin * firstCoin.OwnedAmount) + (secondCoin.AvgPricePerCoin * secondCoin.OwnedAmount) + (thirdCoin.AvgPricePerCoin * thirdCoin.OwnedAmount);
-                decimal totalProfit = totalValue - totalInvested;
+                if (firstCoin != null && secondCoin != null && thirdCoin != null)
+                {
+                    decimal totalValue = firstCoin.CurrentValue + secondCoin.CurrentValue + thirdCoin.CurrentValue;
+                    decimal totalInvested = (firstCoin.AvgPricePerCoin * firstCoin.OwnedAmount) + (secondCoin.AvgPricePerCoin * secondCoin.OwnedAmount) + (thirdCoin.AvgPricePerCoin * thirdCoin.OwnedAmount);
+                    decimal totalProfit = totalValue - totalInvested;
 
-                investedAmtTXT.Text = $"{totalInvested:C2}";
-                valueAmtTXT.Text = $"{totalValue:C2}";
-                profitAmtTXT.Text = $"{totalProfit:C2}";
+                    investedAmtTXT.Text = $"{totalInvested:C2}";
+                    valueAmtTXT.Text = $"{totalValue:C2}";
+                    profitAmtTXT.Text = $"{totalProfit:C2}";
+                }
+                else
+                {
+                    investedAmtTXT.Text = $"{0}";
+                    valueAmtTXT.Text = $"{0}";
+                    profitAmtTXT.Text = $"{0}";
+                }
             }
         }
     }
