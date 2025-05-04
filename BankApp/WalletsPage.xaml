@@ -52,7 +52,7 @@
                 </StackPanel>
                 <Image x:Name="coinImageThree" HorizontalAlignment="Left" Height="100" Margin="70,50,0,0" VerticalAlignment="Top" Width="100" AllowDrop="True" Stretch="Fill"/>
             </Grid>
-            <Grid x:Name="selectedCoinGrid" Background="#FF1A1A2B" Margin="50,436,425,75">
+            <Grid x:Name="selectedCoinGrid" Background="#FF1A1A2B" Margin="50,436,425,70">
                 <Label Content="Amount Owned" HorizontalAlignment="Left" Margin="3,25,0,0" VerticalAlignment="Top" Width="118" Foreground="White" FontSize="14" FontWeight="Bold"/>
                 <Label Content="Total Value" HorizontalAlignment="Left" Margin="32,54,0,0" VerticalAlignment="Top" Width="89" Foreground="White" FontSize="14" FontWeight="Bold"/>
                 <Label Content="Profit/Loss" HorizontalAlignment="Left" Margin="360,-4,0,0" VerticalAlignment="Top" Width="88" Foreground="White" FontSize="14" FontWeight="Bold"/>
@@ -67,7 +67,7 @@
                 <Rectangle HorizontalAlignment="Left" Height="100" Margin="350,25,0,0" VerticalAlignment="Top" Width="2" Fill="White"/>
                 <Rectangle HorizontalAlignment="Left" Height="100" Margin="119,25,0,0" VerticalAlignment="Top" Width="2" Fill="White"/>
                 <Label Content="Details" HorizontalAlignment="Left" Margin="126,-4,0,0" VerticalAlignment="Top" Width="88" Foreground="White" FontSize="14" FontWeight="Bold"/>
-                <Label Content="Buy" HorizontalAlignment="Left" Margin="548,-4,0,0" VerticalAlignment="Top" Width="34" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                <Label Content="Buy/Sell" HorizontalAlignment="Left" Margin="530,-4,0,0" VerticalAlignment="Top" Width="70" Foreground="White" FontSize="14" FontWeight="Bold"/>
                 <Rectangle HorizontalAlignment="Left" Height="100" Margin="562,-28,0,0" VerticalAlignment="Top" Width="2" Fill="White" RenderTransformOrigin="0.5,0.5">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -82,8 +82,9 @@
                 <TextBox x:Name="amountToBuyINPUT" HorizontalAlignment="Left" Margin="512,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" Background="#FF28283E" Foreground="White" TextChanged="amountToBuyINPUT_TextChanged"/>
                 <TextBlock x:Name="purchaseCostTXT" Margin="520,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="11" Width="90" HorizontalAlignment="Left" TextAlignment="Center"/>
                 <Label Content="Cost To Buy" HorizontalAlignment="Left" Margin="526,57,0,0" VerticalAlignment="Top" Width="78" Foreground="White" FontWeight="Bold" Height="25"/>
-                <Button x:Name="purchaseBTN" Content="Try Purchase" HorizontalAlignment="Left" Margin="524,94,0,0" VerticalAlignment="Top" Foreground="White" Background="#FF14FF43" Height="27" Width="82" Click="purchaseBTN_Click"/>
-                <TextBlock x:Name="errorTXT" Margin="510,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="11" Width="110" HorizontalAlignment="Left" TextAlignment="Center" Height="32"/>
+                <Button x:Name="purchaseBTN" Content="Try Purchase" HorizontalAlignment="Left" Margin="526,94,0,0" VerticalAlignment="Top" Foreground="White" Background="#FF14FF43" Height="27" Width="82" Click="purchaseBTN_Click"/>
+                <TextBlock x:Name="errorTXT" Margin="485,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Mono" FontSize="11" Width="160" HorizontalAlignment="Left" TextAlignment="Center" Height="45"/>
+                <Button x:Name="sellBTN" Content="Try Sell" HorizontalAlignment="Left" Margin="524,121,0,0" VerticalAlignment="Top" Foreground="White" Background="#FFFF1414" Height="27" Width="82" Click="sellBTN_Click"/>
             </Grid>
 
             <Grid x:Name="buyCoinGrid" Background="#FF1A1A2B" Margin="800,436,50,75">

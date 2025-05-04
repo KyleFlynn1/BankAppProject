@@ -9,14 +9,62 @@
       Title="TransactionsPage">
 
     <Grid Background="#FF28283E">
-        <ListBox x:Name="lbxTransactions" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="36,64,412,64" Background="#FF1D1D2F" Foreground="White" FontFamily="Cascadia Mono" BorderThickness="0,0,0,1" BorderBrush="Black"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Left" Margin="36,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="279" Foreground="White" FontFamily="Arial Black" FontSize="36" FontWeight="Bold"><Run Text="Transaction"/><Run Language="en-ie" Text="s"/><Run Text="s"/></TextBlock>
-        <StackPanel Orientation="Horizontal" Margin="310,28,412,658">
-            <RadioButton Content="All" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Background="#FF1D1D2F" BorderBrush="White" FontWeight="Bold" Padding="4,0,4,0" ScrollViewer.CanContentScroll="True" Height="25"/>
-            <RadioButton Content="Deposits" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Background="#FF1D1D2F" BorderBrush="White" FontWeight="Bold" Padding="4,0,4,0" ScrollViewer.CanContentScroll="True" Height="25"/>
-            <RadioButton Content="Withdraws" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Background="#FF1D1D2F" BorderBrush="White" FontWeight="Bold" Padding="4,0,4,0" ScrollViewer.CanContentScroll="True" Height="25"/>
-            <RadioButton Content="Crypto" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Background="#FF1D1D2F" BorderBrush="White" FontWeight="Bold" Padding="4,0,4,0" ScrollViewer.CanContentScroll="True" Height="25"/>
-        </StackPanel>
+        <Grid Grid.Column="0">
+            <DataGrid x:Name="TransactionGrid" 
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              IsReadOnly="True"
+              CanUserSortColumns="True"
+              RowHeaderWidth="0"
+              HeadersVisibility="Column"
+              Margin="31,64,5,64"
+              Background="#FF202035"
+              BorderThickness="0"
+              RowBackground="#FF202035"
+              AlternatingRowBackground="#FF202035"
+              HorizontalScrollBarVisibility="Disabled"
+              VerticalScrollBarVisibility="Disabled"
+              ColumnHeaderHeight="35" BorderBrush="{x:Null}" Foreground="White" MaxWidth="642" MaxHeight="576">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#333" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                    </Style>
+                </DataGrid.Resources>
 
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Type" Binding="{Binding TransactionType}" Width="75" />
+                    <DataGridTextColumn Header="Other Party" Binding="{Binding OtherParty}" Width="120" />
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="250" />
+                    <DataGridTextColumn Header="Amount" Binding="{Binding TransactionAmount, StringFormat=C}" Width="100" />
+                    <DataGridTextColumn Header="Date" Binding="{Binding TransactionDate, StringFormat=\{0:dd MMM yyyy\}}" Width="100" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Panel.ZIndex="5" Margin="676,0,2,0" Grid.ColumnSpan="2">
+
+            <Label Content="This Month" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontWeight="Bold"/>
+            <Label Content="In" HorizontalAlignment="Left" Margin="207,79,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+            <Label Content="Out" HorizontalAlignment="Left" Margin="197,155,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+            <TextBlock x:Name="totalInTXT" HorizontalAlignment="Left" TextWrapping="Wrap" Text="$15,000.00" VerticalAlignment="Top" Foreground="White" FontSize="22" Margin="171,121,0,0" Width="209"/>
+            <TextBlock x:Name="totalOutTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="$15,000.00" VerticalAlignment="Top" Foreground="White" FontSize="22" Margin="171,197,0,0" Width="209"/>
+            <Image HorizontalAlignment="Left" Height="100" Margin="86,162,0,0" VerticalAlignment="Top" Width="100" Source="/ArrowUp.png" Stretch="Fill"/>
+            <Image HorizontalAlignment="Left" Height="96" Margin="86,88,0,0" VerticalAlignment="Top" Width="100" Source="/ArrowDown.png" Stretch="Fill"/>
+            <Label Content="Average In" HorizontalAlignment="Left" Margin="158,249,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+            <TextBlock x:Name="averageInTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="$15,000.00" VerticalAlignment="Top" Foreground="White" FontSize="22" Margin="119,291,0,0" Width="208" TextAlignment="Center"/>
+            <Label Content="Average Out" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold" Margin="148,325,0,0"/>
+            <TextBlock x:Name="averageOutTxt" HorizontalAlignment="Center" TextWrapping="Wrap" Text="$15,000.00" VerticalAlignment="Top" Foreground="White" FontSize="22" Margin="0,367,0,0" Width="208" TextAlignment="Center"/>
+            <Label Content="Largest Deposit" HorizontalAlignment="Center" Margin="0,410,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold"/>
+            <TextBlock x:Name="largestDepositTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="$15,000.00" VerticalAlignment="Top" Foreground="White" FontSize="22" Margin="115,452,0,0" Width="208" TextAlignment="Center"/>
+            <Label Content="Largest Withdrawal" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,486,0,0"/>
+            <TextBlock x:Name="largestWithdrawalTxt" HorizontalAlignment="Left" TextWrapping="Wrap" Text="$15,000.00" VerticalAlignment="Top" Foreground="White" FontSize="22" Margin="119,528,0,0" Width="208" TextAlignment="Center"/>
+            <Rectangle HorizontalAlignment="Center" Height="684" VerticalAlignment="Center" Width="336" Fill="#FF202035" Panel.ZIndex="-1"/>
+        </Grid>
     </Grid>
 </Page>

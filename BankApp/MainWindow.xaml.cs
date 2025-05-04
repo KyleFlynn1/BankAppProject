@@ -29,7 +29,7 @@ namespace BankApp
             InitializeComponent();
             FullFrame.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
         }
-
+        //All buttons on sidebar that navigate to different pages
         private void btnDashBoardWindow_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Uri("DashboardPage.xaml", UriKind.Relative));

@@ -65,12 +65,21 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Timer to Constantly Get API Data and keep it up to date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             //Update the API data every 15 seconds
             GetAPIData();
         }
 
+
+        /// <summary>
+        /// Get the rapidApi and deserialize it and get the info out into the Coins Class
+        /// </summary>
         public async void GetAPIData()
         {
             var client = new HttpClient();
@@ -143,6 +152,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Confirm Button to create a wallet and add the coins to the wallet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void confirmBTN_Click(object sender, RoutedEventArgs e)
         {
             Wallet w1 = new Wallet(LoginPage.UserID);
@@ -164,6 +178,11 @@ namespace BankApp
             CreateWalletGrid.Visibility = Visibility.Hidden;
         }
 
+        /// <summary>
+        /// Select First Coin to show info on it 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectOne_Click(object sender, RoutedEventArgs e)
         {
             selectOne.Content = "Selected";
@@ -183,6 +202,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Select Second coin to show info on it
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectTwo_Click(object sender, RoutedEventArgs e)
         {
             selectOne.Content = "Select";
@@ -202,6 +226,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Select Third Coin to show info on it
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectThree_Click(object sender, RoutedEventArgs e)
         {
             selectOne.Content = "Select";
@@ -221,6 +250,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Try Purchase Coin and check if you have enough funds in your bank account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void purchaseBTN_Click(object sender, RoutedEventArgs e)
         {
             if (decimal.TryParse(amountToBuyINPUT.Text, out decimal amountToBuy))
@@ -228,13 +262,11 @@ namespace BankApp
                 var bankAccountQuery = (from b in db.BankAccounts
                                         where b.BankID == AccountsPage.CurrentBankID
                                         select b).FirstOrDefault();
-                if (bankAccountQuery != null)
+                if (bankAccountQuery != null && amountToBuy > 0)
                 {
                     decimal priceToBuy = amountToBuy * myDeserializedClass.data.coins[selectedCoinNum].price;
                     if (bankAccountQuery.AccountBalance >= priceToBuy)
                     {
-
-
                         var coinUuid = myDeserializedClass.data.coins[selectedCoinNum].uuid;
                         OwnedCoin ownedCoin = (from c in db.OwnedCoins
                                                where c.WalletID == wallet.WalletID && c.CoinUUID == coinUuid
@@ -261,6 +293,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// When amount to buy is entered it updates the cost to buy that amount
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void amountToBuyINPUT_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (decimal.TryParse(amountToBuyINPUT.Text, out decimal amountToBuy))
@@ -270,6 +307,9 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Update Coin Grid for the current coin selected in above classes
+        /// </summary>
         private void UpdateCoinGrid()
         {
             currentCoin.CurrentValue = myDeserializedClass.data.coins[selectedCoinNum].price * currentCoin.OwnedAmount;
@@ -286,6 +326,9 @@ namespace BankApp
             else { changeTXT.Text = $"0"; }
         }
 
+        /// <summary>
+        /// Update the top 3 cards which shows quick info on the three coins
+        /// </summary>
         private void UpdateCards()
         {
             var coinUuidOne = myDeserializedClass.data.coins[0].uuid;
@@ -340,6 +383,50 @@ namespace BankApp
 
             //Total Value Calculation and Text
             totalValueAllTXT.Text = $"{selectedCoinOne.CurrentValue + selectedCoinTwo.CurrentValue + selectedCoinThree.CurrentValue:c2}";
+        }
+
+        /// <summary>
+        /// Similar to Purchase Button but it sells coins if they have enough of the coin to sell
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sellBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (decimal.TryParse(amountToBuyINPUT.Text, out decimal amountToBuy))
+            {
+                var bankAccountQuery = (from b in db.BankAccounts
+                                        where b.BankID == AccountsPage.CurrentBankID
+                                        select b).FirstOrDefault();
+                if (bankAccountQuery != null && amountToBuy > 0)
+                {
+                    decimal priceToBuy = amountToBuy * myDeserializedClass.data.coins[selectedCoinNum].price;
+
+                    var coinUuid = myDeserializedClass.data.coins[selectedCoinNum].uuid;
+                       OwnedCoin ownedCoin = (from c in db.OwnedCoins
+                                               where c.WalletID == wallet.WalletID && c.CoinUUID == coinUuid
+                                               select c).FirstOrDefault();
+                        if (ownedCoin != null)
+                        {
+                            if(ownedCoin.OwnedAmount >= amountToBuy)
+                            {
+                                bankAccountQuery.Deposit(priceToBuy);
+                                Transaction t1 = new Transaction(priceToBuy, myDeserializedClass.data.coins[selectedCoinNum].symbol, "CryptoS", DateTime.Now, 0.55m, "Crypto");
+                                bankAccountQuery.Transactions.Add(t1);
+                                db.Transactions.Add(t1);
+                                ownedCoin.AvgPricePerCoin = ((ownedCoin.OwnedAmount * ownedCoin.AvgPricePerCoin) - (amountToBuy * myDeserializedClass.data.coins[selectedCoinNum].price)) / (ownedCoin.OwnedAmount - amountToBuy); ownedCoin.OwnedAmount -= amountToBuy;
+                                errorTXT.Text = $"You have sold {amountToBuy}";
+                                UpdateCoinGrid();
+                                UpdateCards();
+                                db.SaveChanges();
+                                purchaseCostTXT.Text = "";
+                            }
+                        }
+                    else
+                    {
+                        errorTXT.Text = $"Not Enough Funds in your Bank";
+                    }
+                }
+            }
         }
     }
 }

@@ -35,6 +35,7 @@ namespace BankApp
             ChangeQuickAddType();
         }
 
+        //Quick add Buttons to Add or Take away the amount from the deposit amount by using buttons
         private void quickAddBTN10_Click(object sender, RoutedEventArgs e)
         {
             QuickAdd(10.00m);
@@ -65,6 +66,11 @@ namespace BankApp
             UpdateDepositAmountBox();
         }
 
+        /// <summary>
+        /// Check if the Amount Entered is valid to Deposit and if so go ahead with Depositing it into the Bank Account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void depositBTN_Click(object sender, RoutedEventArgs e)
         {
             UpdateDepositAmountBox();
@@ -97,6 +103,10 @@ namespace BankApp
             }
         }
 
+
+        /// <summary>
+        /// Update the Deposit Amount to the current Deposit Amount
+        /// </summary>
         public void UpdateDepositAmountBox()
         {
             if (decimal.TryParse(depositAmountInput.Text, out InputtedAmount))
@@ -115,11 +125,17 @@ namespace BankApp
 
         }
 
+        /// <summary>
+        /// Update Account Balance Text once new deposit is added
+        /// </summary>
         public void UpdateBalanceText()
         {
             txtAccountBalance.Content = $"{DashboardPage.Account.AccountBalance:c}";
         }
 
+        /// <summary>
+        /// Get the Description of the Deposit based on the inputted text or default to a generic description
+        /// </summary>
         public void GetDescription()
         {
             if (depositNotesInput.Text == "" || depositNotesInput.Text == "Deposit Notes/Description")
@@ -131,7 +147,8 @@ namespace BankApp
                 DepositDescription = depositNotesInput.Text;
             }
         }
-
+        
+        //Methods to deposit from as a temporary solution and for testing puproses on transactions to show other partys
         private void methodPaypalBTN_Checked(object sender, RoutedEventArgs e)
         {
             MethodName = "Paypal";
@@ -162,6 +179,11 @@ namespace BankApp
             MethodName = "Cheque";
         }
 
+        /// <summary>
+        /// Change quick add buttons to add or minus from the deposit amount
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void quickAddTypeBTN_Click(object sender, RoutedEventArgs e)
         {
             if (quickAddType == true)
@@ -175,6 +197,9 @@ namespace BankApp
             ChangeQuickAddType();
         }
 
+        /// <summary>
+        /// Update all the quick add buttons to show the correct amount to add or take away from the deposit amount
+        /// </summary>
         public void ChangeQuickAddType()
         {
 
@@ -198,6 +223,10 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// quickAdd method to add or take away from the deposit amount based on the quick add type
+        /// </summary>
+        /// <param name="amount"></param>
         public void QuickAdd(decimal amount)
         {
             if (quickAddType == true)

@@ -33,9 +33,12 @@ namespace BankApp
         {
             InitializeComponent();
 
+            //Run Methods to Get and Update Data on page load
             LoadData();
             UpdateCryptoTile();
+            UpadateMonthlyStatTile();
 
+            //Hide the Transfer Confirm and Cancel Buttons
             transferCancelBTN.Visibility = Visibility.Hidden;
             transferConfirmBTN.Visibility = Visibility.Hidden;
         }
@@ -109,6 +112,11 @@ namespace BankApp
             btnCardRight_Click(sender, e);
         }
 
+        /// <summary>
+        /// Window Loaded Event to set the initial state of the page and Hide Card Buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -123,21 +131,24 @@ namespace BankApp
         /// </summary>
         private void UpdateCardDetails()
         {
+            //Update Card Details for the current card selected
             TxtCardHolder.Content = Account.AccountHolder;
             TxtCardNumber.Content = Account.Cards[CurrentCard].CardNumberS1 + "-" + Account.Cards[CurrentCard].CardNumberS2 + "-" + Account.Cards[CurrentCard].CardNumberS3;
             TxtCVV.Content = Account.Cards[CurrentCard].CVV;
             TxtExpiryDate.Content = Account.Cards[CurrentCard].ExpiryDate.Month + "/" + Account.Cards[CurrentCard].ExpiryDate.Year;
             lblCardCount.Content = $"Card {CurrentCard + 1}/{Account.CardCount}";
             txtCardType.Content = Account.Cards[CurrentCard].CardType;
+            //If the card is a credit card then show the credit limit text
             if (Account.Cards[CurrentCard].CardType == "Credit")
             {
                 txtCreditLimit.Visibility = Visibility.Visible;
                 txtCreditLimit.Content = $"Credit Limit : {Account.Cards[CurrentCard].CreditLimit:c}";
             }
+            //Else if card isnt a credit card then hide the credit limit text
             else
                 txtCreditLimit.Visibility = Visibility.Hidden;
 
-
+            //Switch Statement to set the card image based on the current card selected
             switch (CurrentCard)
             {
                 case 0:
@@ -170,11 +181,13 @@ namespace BankApp
                                     where b.UserID == UserID
                                     select b).FirstOrDefault();
 
+            //Get the bank account from the database that matches the current bank ID
             if (AccountsPage.CurrentBankID != bankAccountQuery.BankID && AccountsPage.CurrentBankID != 0)
             {
                 var bankAccount = (from b in db.BankAccounts
                                    where b.BankID == AccountsPage.CurrentBankID
                                    select b).FirstOrDefault();
+                //If the bank account does exsist update info like cards and balance
                 if (bankAccount != null)
                 {
                     Account = bankAccount;
@@ -267,6 +280,11 @@ namespace BankApp
             
         }
 
+        /// <summary>
+        /// Cancel The Transfer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void transferCancelBTN_Click(object sender, RoutedEventArgs e)
         {
             transferConfirmBTN.Visibility= Visibility.Hidden;
@@ -274,6 +292,11 @@ namespace BankApp
             transferBTN.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Confirm the Transfer and see if its valid to be transferred
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void transferConfirmBTN_Click(object sender, RoutedEventArgs e)
         {
             var bankAccountQuery = (from b in db.BankAccounts
@@ -311,11 +334,19 @@ namespace BankApp
         //End of Transfer Tile Methods
         
         //Start of Crypto Stats Tile
+        /// <summary>
+        /// Quickly Open Wallet Page from the Crypto Tile
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkOutWalletBTN_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.MainFrame.Navigate(new Uri("WalletsPage.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// Update the Crypto Tile to show current crypto holdings and value
+        /// </summary>
         public void UpdateCryptoTile()
         {
             var getWallet = (from w in db.Wallets
@@ -349,6 +380,40 @@ namespace BankApp
                     profitAmtTXT.Text = $"{0}";
                 }
             }
+        }
+
+        /// <summary>
+        /// Update Monthly Stats which is In and Out for the month
+        /// </summary>
+        public void UpadateMonthlyStatTile()
+        {
+
+            //Update This Month Statistics for In and Out Amounts
+            var CurrentMonth = DateTime.Now.Month;
+            var CurrentYear = DateTime.Now.Year;
+            var thisMonthTransactions = (from t in db.Transactions
+                                         where t.BankAccount.BankID == Account.BankID && t.TransactionDate.Month == CurrentMonth && t.TransactionDate.Year == CurrentYear
+                                         select t).ToList();
+            decimal totalIn = thisMonthTransactions
+                .Where(t => t.TransactionType == "Deposit" || t.TransactionType == "CryptoS")
+                .Sum(t => t.TransactionAmount);
+
+            decimal totalOut = thisMonthTransactions
+                .Where(t => t.TransactionType == "Withdraw" || t.TransactionType == "CryptoB")
+                .Sum(t => t.TransactionAmount);
+
+            totalInTXT.Text = $"{totalIn:c}";
+            totalOutTxt.Text = $"{totalOut:c}";
+        }
+
+        /// <summary>
+        /// Quickly go to Transactions Page using the Transactions Tile
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkoutTransactionsBTN_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.MainFrame.Navigate(new Uri("TransactionsPage.xaml", UriKind.Relative));
         }
     }
 }

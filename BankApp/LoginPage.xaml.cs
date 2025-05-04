@@ -32,6 +32,11 @@ namespace BankApp
             ShowLoginUI();
         }
 
+        /// <summary>
+        /// When login clicked it checks if the user is already registered and if so it logs them in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
@@ -54,7 +59,8 @@ namespace BankApp
                     txtError.Text = "Incorrect Details Entered!";
                 }
             }
-            else if( CreatingAccount == true)
+            // If the user is creating an account, it checks if the information is complete and then creates a new account and updates UI to get relevant info
+            else if ( CreatingAccount == true)
             {
                 if(accountHolderInput.Text != "" && usernameInput.Text != "" && passwordInput.Text != "")
                 {
@@ -93,16 +99,29 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// When create account button is clicked it changes the UI to show the create account UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createAccountBTN_Click(object sender, RoutedEventArgs e)
         {
             ShowCreateAccountUI();
         }
 
+        /// <summary>
+        /// When login account button is clicked it changes the UI to show the login account UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loginAccountBTN_Click(object sender, RoutedEventArgs e)
         {
             ShowLoginUI();
         }
 
+        /// <summary>
+        /// Show Login Ui
+        /// </summary>
         public void ShowLoginUI()
         {
             txtAccountHolder.Visibility = Visibility.Hidden;
@@ -115,6 +134,9 @@ namespace BankApp
             CreatingAccount = false;
         }
 
+        /// <summary>
+        /// Show Create Account UI
+        /// </summary>
         public void ShowCreateAccountUI()
         {
             txtAccountHolder.Visibility = Visibility.Visible;

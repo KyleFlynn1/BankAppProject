@@ -32,6 +32,11 @@ namespace BankApp
             SwitchButtonsShow();
         }
 
+        /// <summary>
+        /// First New Account Button Tile if only one account is present
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newAccBTN1_Click(object sender, RoutedEventArgs e)
         {
             newAccBTN1.Visibility = Visibility.Hidden;
@@ -40,6 +45,11 @@ namespace BankApp
             cancelBTN1.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Second New Account Button if two accounts exists
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newAccBTN2_Click(object sender, RoutedEventArgs e)
         {
             var bankAccounts = db.BankAccounts
@@ -60,40 +70,70 @@ namespace BankApp
             cancelBTN2.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Option for Savings Account to be created
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savingSelection1_Checked(object sender, RoutedEventArgs e)
         {
             AccountType = "Savings";
             confirmBTN1.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Option for Business Account to be created
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void businessSelection1_Checked(object sender, RoutedEventArgs e)
         {
             AccountType = "Business";
             confirmBTN1.Visibility = Visibility.Visible;
         }
-
+        /// <summary>
+        /// If there is a Current and Business Account then Savings Account is the only option
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savingSelection2_Checked(object sender, RoutedEventArgs e)
         {
             AccountType = "Savings";
             confirmBTN2.Visibility = Visibility.Visible;
         }
-
+        /// <summary>
+        /// If there is Currednt and Savings Account then Business Account is the only option
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void businessSelection2_Checked(object sender, RoutedEventArgs e)
         {
             AccountType = "Business";
             confirmBTN2.Visibility = Visibility.Visible;
         }
-
+        /// <summary>
+        /// Cancel Creating a New Account and Hide the Ui
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancelBTN1_Click(object sender, RoutedEventArgs e)
         {
             HideUI();
         }
-
+        /// <summary>
+        /// Cancel Creating the Thirds account and Hide the UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancelBTN2_Click(object sender, RoutedEventArgs e)
         {
             HideUI();
         }
-
+        /// <summary>
+        /// Confirm Creating the Second Account and Hide the UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void confirmBTN1_Click(object sender, RoutedEventArgs e)
         {
             var userAccountQuery = (from b in db.Users
@@ -116,6 +156,9 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Hide Ui Elements that are not needed until going through the account creation process
+        /// </summary>
         public void HideUI()
         {
             var bankAccountQueryCount = (from b in db.BankAccounts
@@ -236,6 +279,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Set Current Active Bank Account to the Default Account which is Current 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void defaultAccountSwitchBTN_Click(object sender, RoutedEventArgs e)
         {
             var bankAccounts = db.BankAccounts
@@ -246,12 +294,15 @@ namespace BankApp
             var defaultBankAccount = bankAccounts.ElementAtOrDefault(0);
             DashboardPage.Account = defaultBankAccount;
             CurrentBankID = defaultBankAccount.BankID;
-            //So Transaction Page will reverse new List as its not already when switching accounts
-            TransactionsPage.IsListReversed = false;
             //Show and Hide Switch Buttons
             SwitchButtonsShow();
         }
 
+        /// <summary>
+        /// Set Current Active Bank to the Second Account Created if there is one
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void secondAccountSwitchBTN_Click(object sender, RoutedEventArgs e)
         {
             var bankAccounts = db.BankAccounts
@@ -262,12 +313,15 @@ namespace BankApp
             var secondBankAccount = bankAccounts.ElementAtOrDefault(1); 
             DashboardPage.Account = secondBankAccount;
             CurrentBankID = secondBankAccount.BankID;
-            //So Transaction Page will reverse new List as its not already when switching accounts
-            TransactionsPage.IsListReversed = false;
             //Show and Hide Switch Buttons
             SwitchButtonsShow();
         }
 
+        /// <summary>
+        /// Set the Current Active Bank to the Third Account If it exists
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void thirdAccountSwitchBTN_Click(object sender, RoutedEventArgs e)
         {
             var bankAccounts = db.BankAccounts
@@ -278,12 +332,13 @@ namespace BankApp
             var thirdBankAccount = bankAccounts.ElementAtOrDefault(2);
             DashboardPage.Account = thirdBankAccount;
             CurrentBankID = thirdBankAccount.BankID;
-            //So Transaction Page will reverse new List as its not already when switching accounts
-            TransactionsPage.IsListReversed = false;
             //Show and Hide Switch Buttons
             SwitchButtonsShow();
         }
 
+        /// <summary>
+        /// Show switch buttons for the accounts that are not current ones and exsists
+        /// </summary>
         public void SwitchButtonsShow()
         {
             var bankAccounts = db.BankAccounts
@@ -347,6 +402,11 @@ namespace BankApp
             }
         }
 
+        /// <summary>
+        /// Confirm Button For Logging Out of the User Account Completly
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void confirmBTN3_Click(object sender, RoutedEventArgs e)
         {
             //Change Full Frame to LoginPage until a new or same account is logged into
@@ -355,7 +415,11 @@ namespace BankApp
             //Reset Current BankID to 0 so DashboardPage start normally preventing previous users Bank ID messing with LoadData()
             CurrentBankID = 0;
         }
-
+        /// <summary>
+        /// Cancel Button to stop Logging out of the User Account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancelBTN3_Click(object sender, RoutedEventArgs e)
         {
             //Change Buttons Visibilitys to only show relevant
@@ -364,6 +428,12 @@ namespace BankApp
             cancelBTN3.Visibility = Visibility.Hidden;
         }
 
+
+        /// <summary>
+        /// Logout of the Main User Account and go back to the login page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logoutBTN_Click(object sender, RoutedEventArgs e)
         {
             //Change Buttons Visibilitys to only show relevant

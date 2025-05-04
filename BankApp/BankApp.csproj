@@ -257,6 +257,12 @@
     <Resource Include="BankCardBackgroundThree.png" />
     <Resource Include="BankCardBackgroundTwo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ArrowUp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

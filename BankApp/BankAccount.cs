@@ -48,18 +48,18 @@ namespace BankApp
             Cards.Add(card);
             CardCount++;
         }
-
+        //Append a new Card to the list of cards where the card already is created
         public void AppendCard(Card card)
         {
             Cards.Add(card);
         }
-
+        //Deposit to the account
         public void Deposit(decimal amount)
         {
             AccountBalance += amount;
         }
 
-
+        //Withdraw from the Account
         public void Withdraw(decimal amount)
         {
             if(AccountBalance >= amount)
