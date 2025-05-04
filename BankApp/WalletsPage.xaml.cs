@@ -89,7 +89,7 @@ namespace BankApp
                 RequestUri = new Uri("https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"),
                 Headers =
                 {
-                    { "x-rapidapi-key", "61d3ea00eemsh04cd69a0ce65e77p1b227cjsnd38242e62bd2" },
+                    { "x-rapidapi-key", "dfd9e4c192msh4f1ce955d2673a0p121bf3jsnca194db37f90" },
                     { "x-rapidapi-host", "coinranking1.p.rapidapi.com" },
                 },
             };
@@ -321,7 +321,7 @@ namespace BankApp
             {
                 decimal percentChange = ((myDeserializedClass.data.coins[selectedCoinNum].price - currentCoin.AvgPricePerCoin) / currentCoin.AvgPricePerCoin) * 100;
                 
-                changeTXT.Text = $"{percentChange:F2}";
+                changeTXT.Text = $"{percentChange:F2}%";
             }
             else { changeTXT.Text = $"0"; }
         }
