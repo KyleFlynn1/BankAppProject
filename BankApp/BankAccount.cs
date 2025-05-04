@@ -56,16 +56,28 @@ namespace BankApp
         //Deposit to the account
         public void Deposit(decimal amount)
         {
-            AccountBalance += amount;
+            if (amount < 0)
+            {
+                throw new ArgumentException("Deposit amount must be positive");
+            }
+            else if (amount > 0)
+            {
+                AccountBalance += amount;
+            }
         }
 
         //Withdraw from the Account
         public void Withdraw(decimal amount)
         {
-            if(AccountBalance >= amount)
+            if(amount < 0)
+            {
+                throw new ArgumentException("Withdrawal amount must be greater than zero.");
+            }
+            else if (amount <= AccountBalance)
             {
                 AccountBalance -= amount;
             }
+
         }
 
         public BankAccount() { }
