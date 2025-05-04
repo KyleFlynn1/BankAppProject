@@ -15,7 +15,7 @@ namespace BankApp.Tests
         public void TestDeposit_ValidAmount()
         {
             // Arrange
-            var account = new BankAccount();
+            IBankAccount account = new BankAccount();
             decimal initialBalance = 100m;
             decimal depositAmount = 50m;
             decimal expectedBalance = 150m;
@@ -34,7 +34,7 @@ namespace BankApp.Tests
         public void TestDeposit_NegativeAmount()
         {
             //Arrange
-            var account = new BankAccount();
+            IBankAccount account = new BankAccount();
             decimal depositAmount = -50m;
 
             //Act
@@ -47,7 +47,7 @@ namespace BankApp.Tests
         public void TestDeposit_ZeroAmount()
         {
             //Arrange
-            var account = new BankAccount();
+            IBankAccount account = new BankAccount();
             decimal initialBalance = 100m;
             decimal depositAmount = 0m;
             decimal expectedBalance = 100m;
@@ -68,7 +68,7 @@ namespace BankApp.Tests
         public void TestWithdraw_ValidAmount()
         {
             //Arrange
-            var account = new BankAccount();
+            IBankAccount account = new BankAccount();
             decimal initialBalance = 100m;
             decimal withdrawAmount = 50m;
             decimal expectedBalance = 50m;
@@ -87,7 +87,7 @@ namespace BankApp.Tests
         public void TestWithdraw_NegativeAmount()
         {
             //Arrange
-            var account = new BankAccount();
+            IBankAccount account = new BankAccount();
             decimal withdrawAmount = -50m;
 
             //Act
@@ -100,7 +100,7 @@ namespace BankApp.Tests
         public void TestWithdraw_ZeroAmount()
         {
             //Arrange
-            var account = new BankAccount();
+            IBankAccount account = new BankAccount();
             decimal initialBalance = 100m;
             decimal withdrawAmount = 0m;
             decimal expectedBalance = 100m;

@@ -8,7 +8,16 @@ using System.Windows.Controls.Primitives;
 
 namespace BankApp
 {
-    public class BankAccount
+    public interface IBankAccount
+    {
+        decimal AccountBalance { get; set; }
+        void Deposit(decimal amount);
+        void Withdraw(decimal amount);
+        void AddCard(string type);
+        void AppendCard(Card card);
+    }
+
+    public class BankAccount : IBankAccount
     {
         //Main Bank Account Variables
         [Key]
